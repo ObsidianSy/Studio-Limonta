@@ -2,6 +2,8 @@ import React from 'react';
 import { MapPin, Phone, Instagram, Facebook, Send } from 'lucide-react';
 import { COMPANY_INFO } from '../constants';
 
+const logoUrl = new URL('/logo-limonta.png', import.meta.url).href;
+
 const Footer: React.FC = () => {
   return (
     <div className="relative pt-32 bg-white overflow-hidden">
@@ -29,13 +31,13 @@ const Footer: React.FC = () => {
                     </a>
                 </div>
                 
-                {/* Kid Photo Placeholder - Circular Mask */}
+                {/* Logo Circle */}
                 <div className="md:w-1/2 flex justify-center md:justify-end relative">
-                     <div className="w-64 h-64 md:w-80 md:h-80 bg-brand-cyan rounded-full overflow-hidden border-8 border-white shadow-2xl relative z-10">
-                        <img 
-                            src="https://images.unsplash.com/photo-1596464716127-f9a82b4237dd?q=80&w=800&auto=format&fit=crop" 
-                            alt="Criança nadando"
-                            className="w-full h-full object-cover"
+                     <div className="w-64 h-64 md:w-80 md:h-80 bg-white rounded-full overflow-hidden border-8 border-brand-cyan shadow-2xl relative z-10 flex items-center justify-center p-8">
+                        <img
+                            src={logoUrl}
+                            alt="Studio Limontas Logo"
+                            className="w-full h-full object-contain"
                         />
                      </div>
                      {/* Decorative Elements */}
@@ -105,7 +107,7 @@ const Footer: React.FC = () => {
                     <a href="#" className="hover:text-white transition-colors"><Facebook /></a>
                 </div>
                 <div className="mt-4 md:mt-0 opacity-60 text-xs">
-                    &copy; 2024 Studio Limontas
+                    &copy; 2025 Studio Limontas
                 </div>
             </div>
         </div>

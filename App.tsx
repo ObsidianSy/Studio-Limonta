@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Highlights from './components/Highlights';
@@ -10,12 +10,18 @@ import FAQ from './components/FAQ';
 import Footer from './components/Footer';
 import SchedulingModal from './components/SchedulingModal';
 import CookieConsent from './components/CookieConsent';
+import SplashScreen from './components/SplashScreen';
 import { COMPANY_INFO } from './constants';
 import { MessageCircle } from 'lucide-react';
 
 const App: React.FC = () => {
   const [isScheduleOpen, setIsScheduleOpen] = useState(false);
   const [schedulePrefill, setSchedulePrefill] = useState('');
+  const [showSplash, setShowSplash] = useState(true);
+
+  const handleSplashFinish = useCallback(() => {
+    setShowSplash(false);
+  }, []);
 
   const handleOpenSchedule = (prefill?: string) => {
     setSchedulePrefill(prefill || '');
@@ -23,7 +29,10 @@ const App: React.FC = () => {
   };
 
   return (
-    <main className="min-h-screen font-sans bg-slate-50 selection:bg-brand-yellow selection:text-brand-dark">
+    <>
+      {showSplash && <SplashScreen onFinish={handleSplashFinish} />}
+
+      <main className="min-h-screen font-sans bg-slate-50 selection:bg-brand-yellow selection:text-brand-dark">
       <Navbar onOpenSchedule={() => handleOpenSchedule()} />
       <Hero onOpenSchedule={() => handleOpenSchedule()} />
       
@@ -72,6 +81,7 @@ const App: React.FC = () => {
         <span className="absolute top-0 right-0 w-4 h-4 bg-red-500 border-2 border-white rounded-full"></span>
       </a>
     </main>
+    </>
   );
 };
 

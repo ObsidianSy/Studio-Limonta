@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
-import { Menu, X, MessageCircle, MapPin } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Menu, X, MessageCircle, MapPin, Phone, Calendar, Home, BookOpen, Waves } from 'lucide-react';
 import { COMPANY_INFO } from '../constants';
+
+const logoUrl = new URL('/logo-limonta.png', import.meta.url).href;
 
 interface NavbarProps {
   onOpenSchedule: () => void;
@@ -8,6 +10,15 @@ interface NavbarProps {
 
 const Navbar: React.FC<NavbarProps> = ({ onOpenSchedule }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const handleWhatsApp = () => {
     window.open(`https://wa.me/${COMPANY_INFO.whatsapp}`, '_blank');
@@ -17,100 +28,221 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenSchedule }) => {
     window.open(COMPANY_INFO.googleMaps, '_blank');
   };
 
-  return (
-    <nav className="fixed w-full z-40 bg-white/90 backdrop-blur-md shadow-sm border-b border-blue-100">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-24">
-          
-          {/* Logo Area */}
-          <div className="flex-shrink-0 flex items-center gap-2 cursor-pointer transition-transform hover:scale-105" onClick={() => window.scrollTo(0,0)}>
-            {/* 
-                IMPORTANTE: Salve a imagem da logo enviada como 'logo.png' na pasta public do projeto.
-            */}
-            <img 
-              src="/logo.png" 
-              alt="Studio Limontas Logo" 
-              className="h-20 md:h-24 w-auto object-contain drop-shadow-sm"
-            />
-          </div>
+  const navLinks = [
+    { label: 'Início', href: '#inicio', icon: Home },
+    { label: 'Metodologia', href: '#metodologia', icon: BookOpen },
+    { label: 'Localização', onClick: handleLocation, icon: MapPin },
+    { label: 'Contato', onClick: handleWhatsApp, icon: Phone },
+  ];
 
-          {/* Desktop Menu */}
-          <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-8">
-              <a href="#inicio" className="text-gray-600 hover:text-brand-blue px-3 py-2 rounded-md text-sm font-bold transition-colors">Início</a>
-              <a href="#metodologia" className="text-gray-600 hover:text-brand-blue px-3 py-2 rounded-md text-sm font-bold transition-colors">Metodologia</a>
-              <button onClick={handleLocation} className="text-gray-600 hover:text-brand-blue px-3 py-2 rounded-md text-sm font-bold transition-colors">Localização</button>
-              <button onClick={handleWhatsApp} className="text-gray-600 hover:text-brand-blue px-3 py-2 rounded-md text-sm font-bold transition-colors">Fale Conosco</button>
-              <button 
+  return (
+    <>
+      <nav className={`fixed w-full z-50 transition-all duration-500 ${
+        scrolled
+          ? 'bg-white/95 backdrop-blur-lg shadow-lg py-2'
+          : 'bg-transparent py-4'
+      }`}>
+
+        {/* Top Bar - só aparece quando não scrollou */}
+        {!scrolled && (
+          <div className="hidden lg:block bg-brand-dark/80 backdrop-blur-sm">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="flex items-center justify-between py-2 text-sm">
+                <div className="flex items-center gap-6 text-white/80">
+                  <a href={`tel:${COMPANY_INFO.phone}`} className="flex items-center gap-2 hover:text-brand-yellow transition-colors">
+                    <Phone size={14} />
+                    <span>{COMPANY_INFO.phone}</span>
+                  </a>
+                  <button onClick={handleLocation} className="flex items-center gap-2 hover:text-brand-yellow transition-colors">
+                    <MapPin size={14} />
+                    <span>Franca, SP</span>
+                  </button>
+                </div>
+                <div className="flex items-center gap-4">
+                  <a
+                    href="https://www.instagram.com/limontasnatacaoinfantil/"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-white/80 hover:text-brand-yellow transition-colors"
+                  >
+                    @limontasnatacaoinfantil
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Main Nav */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-20">
+
+            {/* Logo */}
+            <div
+              className="flex-shrink-0 flex items-center gap-3 cursor-pointer group"
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            >
+              <div className={`relative p-1 rounded-2xl transition-all duration-300 ${
+                scrolled ? 'bg-white shadow-md' : 'bg-white/10 backdrop-blur-sm'
+              }`}>
+                <img
+                  src={logoUrl}
+                  alt="Studio Limontas Logo"
+                  className="h-14 md:h-16 w-auto object-contain group-hover:scale-105 transition-transform"
+                />
+              </div>
+              <div className={`hidden sm:block transition-colors ${scrolled ? 'text-brand-dark' : 'text-white'}`}>
+                <span className="font-display text-xl font-bold block leading-tight">Studio</span>
+                <span className="font-display text-xl font-bold text-brand-cyan">Limontas</span>
+              </div>
+            </div>
+
+            {/* Desktop Menu */}
+            <div className="hidden lg:flex items-center gap-2">
+              {navLinks.map((link, index) => (
+                link.href ? (
+                  <a
+                    key={index}
+                    href={link.href}
+                    className={`group flex items-center gap-2 px-4 py-2.5 rounded-xl font-semibold transition-all ${
+                      scrolled
+                        ? 'text-gray-600 hover:text-brand-blue hover:bg-brand-cyan/10'
+                        : 'text-white/90 hover:text-white hover:bg-white/10'
+                    }`}
+                  >
+                    <link.icon size={18} className="opacity-70 group-hover:opacity-100 transition-opacity" />
+                    {link.label}
+                  </a>
+                ) : (
+                  <button
+                    key={index}
+                    onClick={link.onClick}
+                    className={`group flex items-center gap-2 px-4 py-2.5 rounded-xl font-semibold transition-all ${
+                      scrolled
+                        ? 'text-gray-600 hover:text-brand-blue hover:bg-brand-cyan/10'
+                        : 'text-white/90 hover:text-white hover:bg-white/10'
+                    }`}
+                  >
+                    <link.icon size={18} className="opacity-70 group-hover:opacity-100 transition-opacity" />
+                    {link.label}
+                  </button>
+                )
+              ))}
+
+              {/* CTA Button */}
+              <button
                 onClick={onOpenSchedule}
-                className="bg-brand-blue text-white hover:bg-brand-dark px-6 py-2.5 rounded-full text-sm font-bold shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5"
+                className="ml-4 group relative overflow-hidden bg-gradient-to-r from-brand-yellow to-yellow-400 text-brand-dark px-6 py-3 rounded-full font-bold shadow-lg hover:shadow-xl transition-all hover:scale-105"
               >
-                Agendar Aula
+                <span className="relative z-10 flex items-center gap-2">
+                  <Calendar size={18} />
+                  Agendar Aula
+                </span>
+                <div className="absolute inset-0 bg-gradient-to-r from-yellow-400 to-brand-yellow opacity-0 group-hover:opacity-100 transition-opacity" />
+              </button>
+            </div>
+
+            {/* Mobile menu button */}
+            <div className="flex lg:hidden">
+              <button
+                onClick={() => setIsOpen(!isOpen)}
+                className={`p-3 rounded-xl transition-all ${
+                  scrolled
+                    ? 'text-brand-dark hover:bg-gray-100'
+                    : 'text-white hover:bg-white/10'
+                }`}
+              >
+                {isOpen ? <X size={28} /> : <Menu size={28} />}
               </button>
             </div>
           </div>
+        </div>
+      </nav>
 
-          {/* Mobile menu button */}
-          <div className="-mr-2 flex md:hidden">
+      {/* Mobile Menu - Full Screen Overlay */}
+      <div className={`fixed inset-0 z-40 lg:hidden transition-all duration-500 ${
+        isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+      }`}>
+        {/* Backdrop */}
+        <div
+          className="absolute inset-0 bg-brand-dark/60 backdrop-blur-sm"
+          onClick={() => setIsOpen(false)}
+        />
+
+        {/* Menu Content */}
+        <div className={`absolute right-0 top-0 h-full w-full max-w-sm bg-gradient-to-br from-brand-dark via-brand-blue to-brand-cyan shadow-2xl transition-transform duration-500 ${
+          isOpen ? 'translate-x-0' : 'translate-x-full'
+        }`}>
+
+          {/* Close Button */}
+          <button
+            onClick={() => setIsOpen(false)}
+            className="absolute top-6 right-6 p-2 text-white/80 hover:text-white transition-colors"
+          >
+            <X size={32} />
+          </button>
+
+          <div className="flex flex-col h-full pt-20 pb-8 px-8">
+
+            {/* Logo & Title */}
+            <div className="flex flex-col items-center mb-10">
+              <div className="w-24 h-24 bg-white rounded-2xl flex items-center justify-center shadow-xl mb-4 p-2">
+                <img src={logoUrl} alt="Studio Limontas" className="w-full h-full object-contain" />
+              </div>
+              <h2 className="font-display text-2xl font-bold text-white">Studio Limontas</h2>
+              <p className="text-white/60 text-sm mt-1">Natação Infantil</p>
+            </div>
+
+            {/* Navigation Links */}
+            <div className="flex-1 space-y-3">
+              {navLinks.map((link, index) => (
+                link.href ? (
+                  <a
+                    key={index}
+                    href={link.href}
+                    onClick={() => setIsOpen(false)}
+                    className="flex items-center gap-4 px-5 py-4 bg-white/10 hover:bg-white/20 rounded-2xl text-white font-semibold transition-all active:scale-95"
+                  >
+                    <div className="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center">
+                      <link.icon size={20} />
+                    </div>
+                    {link.label}
+                  </a>
+                ) : (
+                  <button
+                    key={index}
+                    onClick={() => { link.onClick?.(); setIsOpen(false); }}
+                    className="w-full flex items-center gap-4 px-5 py-4 bg-white/10 hover:bg-white/20 rounded-2xl text-white font-semibold transition-all active:scale-95"
+                  >
+                    <div className="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center">
+                      <link.icon size={20} />
+                    </div>
+                    {link.label}
+                  </button>
+                )
+              ))}
+            </div>
+
+            {/* CTA Button */}
             <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="inline-flex items-center justify-center p-2 rounded-md text-brand-blue hover:bg-blue-50 focus:outline-none"
+              onClick={() => { onOpenSchedule(); setIsOpen(false); }}
+              className="w-full bg-brand-yellow text-brand-dark py-4 rounded-2xl font-bold text-lg shadow-lg hover:shadow-xl transition-all active:scale-95 flex items-center justify-center gap-3"
             >
-              {isOpen ? <X size={32} /> : <Menu size={32} />}
+              <Waves size={24} />
+              Agendar Aula Experimental
             </button>
+
+            {/* Contact Info */}
+            <div className="mt-6 pt-6 border-t border-white/10 text-center">
+              <p className="text-white/50 text-sm">Fale conosco</p>
+              <a href={`tel:${COMPANY_INFO.phone}`} className="text-white font-semibold">
+                {COMPANY_INFO.phone}
+              </a>
+            </div>
           </div>
         </div>
       </div>
-
-      {/* Mobile Menu - Styled like the requested Linktree Card */}
-      {isOpen && (
-        <div className="md:hidden bg-brand-cyan/95 backdrop-blur-xl absolute top-24 left-0 w-full min-h-[calc(100vh-6rem)] border-t border-white/20 animate-fadeIn p-6 flex flex-col items-center overflow-y-auto pb-20">
-            
-            {/* Header com Logo e Texto (Estilo Linktree) */}
-            <div className="flex flex-col items-center mb-8 mt-2 text-center">
-                 <div className="w-32 h-32 bg-white rounded-full flex items-center justify-center shadow-xl mb-4 p-2">
-                     <img src="/logo.png" alt="Studio Limontas" className="w-full h-full object-contain rounded-full" />
-                 </div>
-                 <h2 className="font-display text-3xl font-bold text-white mb-2 text-shadow-sm">Studio Limonta's</h2>
-                 <p className="text-white/90 text-base font-medium max-w-xs leading-relaxed">
-                    Venha conhecer nosso método de aprendizado inclusivo!
-                 </p>
-            </div>
-
-            <div className="w-full max-w-sm space-y-4">
-                <button 
-                    onClick={() => { handleWhatsApp(); setIsOpen(false); }}
-                    className="w-full bg-white text-brand-dark font-bold py-4 rounded-xl shadow-lg flex items-center justify-between px-6 hover:bg-blue-50 transform active:scale-95 transition-all"
-                >
-                    Fale Conosco <MessageCircle size={20} className="text-brand-cyan" />
-                </button>
-
-                <button 
-                    onClick={() => { onOpenSchedule(); setIsOpen(false); }}
-                    className="w-full bg-white text-brand-dark font-bold py-4 rounded-xl shadow-lg flex items-center justify-between px-6 hover:bg-blue-50 transform active:scale-95 transition-all"
-                >
-                    Agendar Aula Experimental <span className="text-brand-cyan">⋮</span>
-                </button>
-
-                <button 
-                    onClick={() => { handleLocation(); setIsOpen(false); }}
-                    className="w-full bg-white text-brand-dark font-bold py-4 rounded-xl shadow-lg flex items-center justify-between px-6 hover:bg-blue-50 transform active:scale-95 transition-all"
-                >
-                    Localização <MapPin size={20} className="text-brand-cyan" />
-                </button>
-
-                <a 
-                    href="#metodologia"
-                    onClick={() => setIsOpen(false)}
-                    className="w-full bg-white text-brand-dark font-bold py-4 rounded-xl shadow-lg flex items-center justify-between px-6 hover:bg-blue-50 transform active:scale-95 transition-all"
-                >
-                    Metodologia <span className="text-brand-cyan">⋮</span>
-                </a>
-            </div>
-
-        </div>
-      )}
-    </nav>
+    </>
   );
 };
 
