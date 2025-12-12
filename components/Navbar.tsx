@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Menu, X, MapPin, Phone, Calendar, Home, BookOpen, Waves } from 'lucide-react';
 import { COMPANY_INFO } from '../constants';
 
@@ -10,6 +10,32 @@ interface NavbarProps {
 
 const Navbar: React.FC<NavbarProps> = ({ onOpenSchedule }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      // Se estiver no topo, sempre mostrar
+      if (currentScrollY < 100) {
+        setIsVisible(true);
+      }
+      // Scrollando pra cima = mostrar navbar
+      else if (currentScrollY < lastScrollY) {
+        setIsVisible(true);
+      }
+      // Scrollando pra baixo = esconder navbar
+      else if (currentScrollY > lastScrollY) {
+        setIsVisible(false);
+      }
+
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [lastScrollY]);
 
   const handleWhatsApp = () => {
     window.open(`https://wa.me/${COMPANY_INFO.whatsapp}`, '_blank');
@@ -28,7 +54,9 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenSchedule }) => {
 
   return (
     <>
-      <nav className="fixed w-full z-50 bg-transparent">
+      <nav className={`fixed w-full z-50 bg-transparent transition-transform duration-300 ${
+        isVisible ? 'translate-y-0' : '-translate-y-full'
+      }`}>
 
         {/* Top Bar - Info */}
         <div className="hidden lg:block bg-black/20 backdrop-blur-sm">
@@ -116,12 +144,12 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenSchedule }) => {
             </div>
 
             {/* Mobile menu button */}
-            <div className="flex lg:hidden">
+            <div className={`flex lg:hidden transition-opacity duration-300 ${isOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
               <button
-                onClick={() => setIsOpen(!isOpen)}
+                onClick={() => setIsOpen(true)}
                 className="p-2 sm:p-3 rounded-xl text-white hover:bg-white/10 transition-all"
               >
-                {isOpen ? <X className="w-6 h-6 sm:w-7 sm:h-7" /> : <Menu className="w-6 h-6 sm:w-7 sm:h-7" />}
+                <Menu className="w-6 h-6 sm:w-7 sm:h-7" />
               </button>
             </div>
           </div>
