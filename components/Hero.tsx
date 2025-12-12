@@ -82,24 +82,24 @@ const Hero: React.FC<HeroProps> = ({ onOpenSchedule }) => {
             </div>
 
             {/* Trust Indicators */}
-            <div className="flex flex-col xs:flex-row flex-wrap items-center justify-center lg:justify-start gap-3 sm:gap-6 text-white/70 text-xs sm:text-sm">
-              <div className="flex items-center gap-2">
-                <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/10 flex items-center justify-center">
-                  <span className="text-base sm:text-lg">👶</span>
+            <div className="grid grid-cols-1 min-[400px]:grid-cols-3 gap-2 sm:gap-4 text-white/70 text-[11px] sm:text-sm max-w-sm min-[400px]:max-w-none mx-auto lg:mx-0">
+              <div className="flex items-center justify-center min-[400px]:justify-start gap-1.5 sm:gap-2 bg-white/5 rounded-lg py-2 px-3">
+                <div className="w-7 h-7 sm:w-9 sm:h-9 rounded-full bg-white/10 flex items-center justify-center flex-shrink-0">
+                  <span className="text-sm sm:text-base">👶</span>
                 </div>
-                <span>A partir de 6 meses</span>
+                <span className="whitespace-nowrap">A partir de 6 meses</span>
               </div>
-              <div className="flex items-center gap-2">
-                <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/10 flex items-center justify-center">
-                  <span className="text-base sm:text-lg">🏊</span>
+              <div className="flex items-center justify-center min-[400px]:justify-start gap-1.5 sm:gap-2 bg-white/5 rounded-lg py-2 px-3">
+                <div className="w-7 h-7 sm:w-9 sm:h-9 rounded-full bg-white/10 flex items-center justify-center flex-shrink-0">
+                  <span className="text-sm sm:text-base">🏊</span>
                 </div>
-                <span>+500 alunos formados</span>
+                <span className="whitespace-nowrap">+500 alunos</span>
               </div>
-              <div className="flex items-center gap-2">
-                <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/10 flex items-center justify-center">
-                  <span className="text-base sm:text-lg">⭐</span>
+              <div className="flex items-center justify-center min-[400px]:justify-start gap-1.5 sm:gap-2 bg-white/5 rounded-lg py-2 px-3">
+                <div className="w-7 h-7 sm:w-9 sm:h-9 rounded-full bg-white/10 flex items-center justify-center flex-shrink-0">
+                  <span className="text-sm sm:text-base">⭐</span>
                 </div>
-                <span>5.0 no Google</span>
+                <span className="whitespace-nowrap">5.0 no Google</span>
               </div>
             </div>
           </div>

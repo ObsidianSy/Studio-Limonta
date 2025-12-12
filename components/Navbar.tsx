@@ -67,13 +67,11 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenSchedule }) => {
               className="flex-shrink-0 flex items-center gap-2 sm:gap-3 cursor-pointer group"
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             >
-              <div className="relative p-0.5 sm:p-1 rounded-xl sm:rounded-2xl bg-white/20 backdrop-blur-sm transition-all duration-300">
-                <img
+              <img
                   src={logoUrl}
                   alt="Studio Limontas Logo"
-                  className="h-10 sm:h-14 md:h-16 w-auto object-contain group-hover:scale-105 transition-transform"
+                  className="h-12 sm:h-14 md:h-16 w-auto object-contain group-hover:scale-105 transition-transform drop-shadow-lg"
                 />
-              </div>
               <div className="hidden sm:block text-white">
                 <span className="font-display text-lg sm:text-xl font-bold block leading-tight">Studio</span>
                 <span className="font-display text-lg sm:text-xl font-bold text-brand-cyan">Limontas</span>

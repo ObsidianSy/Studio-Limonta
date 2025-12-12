@@ -12,22 +12,20 @@ const highlightsData: HighlightProps[] = [
 
 const Highlights: React.FC = () => {
   return (
-    <div className="relative w-full bg-slate-50 pt-10 pb-20">
-      <div className="max-w-7xl mx-auto px-4 overflow-x-auto hide-scroll relative z-10">
-        <div className="flex justify-start md:justify-center gap-6 sm:gap-10 min-w-max px-2">
+    <div className="relative w-full bg-slate-50 pt-8 sm:pt-10 pb-16 sm:pb-20">
+      <div className="max-w-7xl mx-auto px-2 sm:px-4 overflow-x-auto hide-scroll relative z-10">
+        <div className="flex justify-center gap-3 min-[400px]:gap-5 sm:gap-8 md:gap-10 px-1">
           {highlightsData.map((item, index) => (
             <div key={index} className="flex flex-col items-center group cursor-pointer reveal" style={{ transitionDelay: `${index * 100}ms` }}>
               {/* Ring Container - Mimics Instagram Story Ring */}
-              <div className={`p-[3px] rounded-full bg-gradient-to-tr ${item.color} mb-3 shadow-sm group-hover:scale-110 transition-transform duration-300`}>
-                <div className="bg-white p-4 rounded-full border-4 border-white">
-                  {/* Using generic icons but colored to match the theme */}
-                  <item.icon 
-                    size={28} 
-                    className="text-gray-700 group-hover:text-brand-blue transition-colors" 
+              <div className={`p-[2px] sm:p-[3px] rounded-full bg-gradient-to-tr ${item.color} mb-2 sm:mb-3 shadow-sm group-hover:scale-110 transition-transform duration-300`}>
+                <div className="bg-white p-2 min-[400px]:p-3 sm:p-4 rounded-full border-2 sm:border-4 border-white">
+                  <item.icon
+                    className="w-5 h-5 min-[400px]:w-6 min-[400px]:h-6 sm:w-7 sm:h-7 text-gray-700 group-hover:text-brand-blue transition-colors"
                   />
                 </div>
               </div>
-              <span className="text-xs sm:text-sm font-bold text-gray-600 tracking-wide">{item.label}</span>
+              <span className="text-[10px] min-[400px]:text-xs sm:text-sm font-bold text-gray-600 tracking-wide whitespace-nowrap">{item.label}</span>
             </div>
           ))}
         </div>
