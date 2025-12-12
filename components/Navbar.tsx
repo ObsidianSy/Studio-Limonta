@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Menu, X, MessageCircle, MapPin, Phone, Calendar, Home, BookOpen, Waves } from 'lucide-react';
+import React, { useState } from 'react';
+import { Menu, X, MapPin, Phone, Calendar, Home, BookOpen, Waves } from 'lucide-react';
 import { COMPANY_INFO } from '../constants';
 
 const logoUrl = new URL('/logo-limonta.png', import.meta.url).href;
@@ -10,15 +10,6 @@ interface NavbarProps {
 
 const Navbar: React.FC<NavbarProps> = ({ onOpenSchedule }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   const handleWhatsApp = () => {
     window.open(`https://wa.me/${COMPANY_INFO.whatsapp}`, '_blank');
@@ -37,63 +28,55 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenSchedule }) => {
 
   return (
     <>
-      <nav className={`fixed w-full z-50 transition-all duration-500 ${
-        scrolled
-          ? 'bg-white/95 backdrop-blur-lg shadow-lg py-2'
-          : 'bg-transparent py-4'
-      }`}>
+      <nav className="fixed w-full z-50 bg-transparent">
 
-        {/* Top Bar - só aparece quando não scrollou */}
-        {!scrolled && (
-          <div className="hidden lg:block bg-brand-dark/80 backdrop-blur-sm">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="flex items-center justify-between py-2 text-sm">
-                <div className="flex items-center gap-6 text-white/80">
-                  <a href={`tel:${COMPANY_INFO.phone}`} className="flex items-center gap-2 hover:text-brand-yellow transition-colors">
-                    <Phone size={14} />
-                    <span>{COMPANY_INFO.phone}</span>
-                  </a>
-                  <button onClick={handleLocation} className="flex items-center gap-2 hover:text-brand-yellow transition-colors">
-                    <MapPin size={14} />
-                    <span>Franca, SP</span>
-                  </button>
-                </div>
-                <div className="flex items-center gap-4">
-                  <a
-                    href="https://www.instagram.com/limontasnatacaoinfantil/"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="text-white/80 hover:text-brand-yellow transition-colors"
-                  >
-                    @limontasnatacaoinfantil
-                  </a>
-                </div>
+        {/* Top Bar - Info */}
+        <div className="hidden lg:block bg-black/20 backdrop-blur-sm">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex items-center justify-between py-2 text-sm">
+              <div className="flex items-center gap-6 text-white/80">
+                <a href={`tel:${COMPANY_INFO.phone}`} className="flex items-center gap-2 hover:text-brand-yellow transition-colors">
+                  <Phone size={14} />
+                  <span>{COMPANY_INFO.phone}</span>
+                </a>
+                <button onClick={handleLocation} className="flex items-center gap-2 hover:text-brand-yellow transition-colors">
+                  <MapPin size={14} />
+                  <span>Franca, SP</span>
+                </button>
+              </div>
+              <div className="flex items-center gap-4">
+                <a
+                  href="https://www.instagram.com/limontasnatacaoinfantil/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-white/80 hover:text-brand-yellow transition-colors"
+                >
+                  @limontasnatacaoinfantil
+                </a>
               </div>
             </div>
           </div>
-        )}
+        </div>
 
         {/* Main Nav */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-20">
+        <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16 sm:h-20">
 
             {/* Logo */}
             <div
-              className="flex-shrink-0 flex items-center gap-3 cursor-pointer group"
+              className="flex-shrink-0 flex items-center gap-2 sm:gap-3 cursor-pointer group"
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             >
-              <div className={`relative p-1 rounded-2xl transition-all duration-300 ${
-                scrolled ? 'bg-white shadow-md' : 'bg-white/10 backdrop-blur-sm'
-              }`}>
+              <div className="relative p-0.5 sm:p-1 rounded-xl sm:rounded-2xl bg-white/20 backdrop-blur-sm transition-all duration-300">
                 <img
                   src={logoUrl}
                   alt="Studio Limontas Logo"
-                  className="h-14 md:h-16 w-auto object-contain group-hover:scale-105 transition-transform"
+                  className="h-10 sm:h-14 md:h-16 w-auto object-contain group-hover:scale-105 transition-transform"
                 />
               </div>
-              <div className={`hidden sm:block transition-colors ${scrolled ? 'text-brand-dark' : 'text-white'}`}>
-                <span className="font-display text-xl font-bold block leading-tight">Studio</span>
-                <span className="font-display text-xl font-bold text-brand-cyan">Limontas</span>
+              <div className="hidden sm:block text-white">
+                <span className="font-display text-lg sm:text-xl font-bold block leading-tight">Studio</span>
+                <span className="font-display text-lg sm:text-xl font-bold text-brand-cyan">Limontas</span>
               </div>
             </div>
 
@@ -104,11 +87,7 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenSchedule }) => {
                   <a
                     key={index}
                     href={link.href}
-                    className={`group flex items-center gap-2 px-4 py-2.5 rounded-xl font-semibold transition-all ${
-                      scrolled
-                        ? 'text-gray-600 hover:text-brand-blue hover:bg-brand-cyan/10'
-                        : 'text-white/90 hover:text-white hover:bg-white/10'
-                    }`}
+                    className="group flex items-center gap-2 px-4 py-2.5 rounded-xl font-semibold text-white/90 hover:text-white hover:bg-white/10 transition-all"
                   >
                     <link.icon size={18} className="opacity-70 group-hover:opacity-100 transition-opacity" />
                     {link.label}
@@ -117,11 +96,7 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenSchedule }) => {
                   <button
                     key={index}
                     onClick={link.onClick}
-                    className={`group flex items-center gap-2 px-4 py-2.5 rounded-xl font-semibold transition-all ${
-                      scrolled
-                        ? 'text-gray-600 hover:text-brand-blue hover:bg-brand-cyan/10'
-                        : 'text-white/90 hover:text-white hover:bg-white/10'
-                    }`}
+                    className="group flex items-center gap-2 px-4 py-2.5 rounded-xl font-semibold text-white/90 hover:text-white hover:bg-white/10 transition-all"
                   >
                     <link.icon size={18} className="opacity-70 group-hover:opacity-100 transition-opacity" />
                     {link.label}
@@ -146,13 +121,9 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenSchedule }) => {
             <div className="flex lg:hidden">
               <button
                 onClick={() => setIsOpen(!isOpen)}
-                className={`p-3 rounded-xl transition-all ${
-                  scrolled
-                    ? 'text-brand-dark hover:bg-gray-100'
-                    : 'text-white hover:bg-white/10'
-                }`}
+                className="p-2 sm:p-3 rounded-xl text-white hover:bg-white/10 transition-all"
               >
-                {isOpen ? <X size={28} /> : <Menu size={28} />}
+                {isOpen ? <X className="w-6 h-6 sm:w-7 sm:h-7" /> : <Menu className="w-6 h-6 sm:w-7 sm:h-7" />}
               </button>
             </div>
           </div>

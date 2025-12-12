@@ -35,72 +35,69 @@ const Hero: React.FC<HeroProps> = ({ onOpenSchedule }) => {
         <div className="bubble" style={{ background: 'rgba(255,255,255,0.1)' }}></div>
         <div className="bubble" style={{ background: 'rgba(255,255,255,0.1)' }}></div>
         <div className="bubble" style={{ background: 'rgba(255,255,255,0.1)' }}></div>
-        <div className="bubble" style={{ background: 'rgba(255,255,255,0.1)' }}></div>
-        <div className="bubble" style={{ background: 'rgba(255,255,255,0.1)' }}></div>
-        <div className="bubble" style={{ background: 'rgba(255,255,255,0.1)' }}></div>
       </div>
 
       {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-20">
-        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 relative z-10 pt-24 pb-16">
+        <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-20">
 
           {/* Left: Text Content */}
           <div className="w-full lg:w-3/5 text-center lg:text-left animate-fadeIn">
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 px-5 py-2.5 bg-brand-yellow text-brand-dark font-bold text-sm mb-8 rounded-full shadow-lg">
-              <span className="w-2.5 h-2.5 bg-brand-dark rounded-full animate-pulse"></span>
+            <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-5 py-2 bg-brand-yellow text-brand-dark font-bold text-xs sm:text-sm mb-4 sm:mb-8 rounded-full shadow-lg">
+              <span className="w-2 h-2 bg-brand-dark rounded-full animate-pulse"></span>
               Matrículas Abertas 2025
             </div>
 
             {/* Title */}
-            <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-6 leading-[1.05]">
+            <h1 className="font-display text-3xl xs:text-4xl sm:text-5xl lg:text-7xl font-bold text-white mb-4 sm:mb-6 leading-[1.1]">
               Onde nadar é<br/>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-cyan via-brand-yellow to-brand-cyan animate-pulse">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-cyan via-brand-yellow to-brand-cyan">
                 aprender brincando
               </span>
             </h1>
 
             {/* Subtitle */}
-            <p className="text-white/80 text-lg sm:text-xl lg:text-2xl mb-10 font-medium leading-relaxed max-w-2xl mx-auto lg:mx-0">
+            <p className="text-white/80 text-sm sm:text-lg lg:text-xl mb-6 sm:mb-10 font-medium leading-relaxed max-w-2xl mx-auto lg:mx-0 px-2 sm:px-0">
               Natação infantil com amor, técnica e segurança.
               Desenvolvemos o potencial do seu filho em um ambiente acolhedor e divertido.
             </p>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-12">
+            <div className="flex flex-col gap-3 sm:gap-4 justify-center lg:justify-start mb-8 sm:mb-12 px-2 sm:px-0">
               <button
                 onClick={onOpenSchedule}
-                className="group bg-brand-yellow text-brand-dark px-8 py-4 rounded-full font-bold shadow-lg hover:shadow-xl hover:scale-105 transition-all text-lg tracking-wide flex items-center justify-center gap-2"
+                className="group bg-brand-yellow text-brand-dark px-5 sm:px-8 py-3 sm:py-4 rounded-full font-bold shadow-lg hover:shadow-xl hover:scale-105 transition-all text-sm sm:text-lg tracking-wide flex items-center justify-center gap-2"
               >
-                <Waves className="w-5 h-5" />
+                <Waves className="w-4 h-4 sm:w-5 sm:h-5" />
                 Agendar Aula Experimental
               </button>
               <a
                 href="#metodologia"
-                className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 px-8 py-4 rounded-full font-bold hover:bg-white/20 transition-all text-lg flex items-center justify-center gap-2"
+                className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 px-5 sm:px-8 py-3 sm:py-4 rounded-full font-bold hover:bg-white/20 transition-all text-sm sm:text-lg flex items-center justify-center gap-2"
               >
-                <Play className="w-5 h-5" fill="currentColor" />
+                <Play className="w-4 h-4 sm:w-5 sm:h-5" fill="currentColor" />
                 Ver Como Funciona
               </a>
             </div>
 
             {/* Trust Indicators */}
-            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-6 text-white/70 text-sm">
+            <div className="flex flex-col xs:flex-row flex-wrap items-center justify-center lg:justify-start gap-3 sm:gap-6 text-white/70 text-xs sm:text-sm">
               <div className="flex items-center gap-2">
-                <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center">
-                  <span className="text-lg">👶</span>
+                <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/10 flex items-center justify-center">
+                  <span className="text-base sm:text-lg">👶</span>
                 </div>
                 <span>A partir de 6 meses</span>
               </div>
               <div className="flex items-center gap-2">
-                <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center">
-                  <span className="text-lg">🏊</span>
+                <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/10 flex items-center justify-center">
+                  <span className="text-base sm:text-lg">🏊</span>
                 </div>
                 <span>+500 alunos formados</span>
               </div>
               <div className="flex items-center gap-2">
-                <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center">
-                  <span className="text-lg">⭐</span>
+                <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/10 flex items-center justify-center">
+                  <span className="text-base sm:text-lg">⭐</span>
                 </div>
                 <span>5.0 no Google</span>
               </div>
@@ -145,10 +142,10 @@ const Hero: React.FC<HeroProps> = ({ onOpenSchedule }) => {
       </div>
 
       {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 animate-bounce">
+      <div className="absolute bottom-4 sm:bottom-8 left-1/2 -translate-x-1/2 z-10 animate-bounce">
         <a href="#destaques" className="flex flex-col items-center text-white/60 hover:text-white transition-colors">
-          <span className="text-sm mb-2 font-medium">Conheça mais</span>
-          <ChevronDown className="w-6 h-6" />
+          <span className="text-xs sm:text-sm mb-1 sm:mb-2 font-medium">Conheça mais</span>
+          <ChevronDown className="w-5 h-5 sm:w-6 sm:h-6" />
         </a>
       </div>
 
