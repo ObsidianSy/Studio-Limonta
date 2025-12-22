@@ -1,80 +1,71 @@
+
 import React from 'react';
-import { ShieldCheck, Heart, Medal, UserCheck } from 'lucide-react';
-import { COMPANY_INFO } from '../constants';
+import { Star, Shield, Zap, TrendingUp } from 'lucide-react';
 
 const WhyUs: React.FC = () => {
   const features = [
     {
-        icon: ShieldCheck,
-        title: "Segurança Total",
-        desc: "Piscinas tratadas, ambiente monitorado e professores certificados em salvamento.",
-        color: "bg-blue-100 text-blue-600"
+        icon: Shield,
+        title: "ACOMPANHAMENTO VIP",
+        desc: "Foco total na sua biomecânica. Sem compartilhamento de atenção.",
+        color: "text-brand-blue"
     },
     {
-        icon: Heart,
-        title: "Metodologia Afetiva",
-        desc: "Respeitamos o tempo de cada criança, criando vínculo e confiança antes da técnica.",
-        color: "bg-red-100 text-red-500"
+        icon: Zap,
+        title: "MÉTODO CIENTÍFICO",
+        desc: "Periodização baseada em fisiologia do exercício aquático.",
+        color: "text-brand-cyan"
     },
     {
-        icon: UserCheck,
-        title: "Turmas Reduzidas",
-        desc: "Atenção individualizada para garantir a evolução correta de cada peixinho.",
-        color: "bg-green-100 text-green-600"
-    },
-    {
-        icon: Medal,
-        title: "Evolução Constante",
-        desc: "Sistema de níveis estruturado (do Tetéia ao Tida) para acompanhar o crescimento.",
-        color: "bg-yellow-100 text-yellow-600"
+        icon: TrendingUp,
+        title: "ALTA PERFORMANCE",
+        desc: "Ajustes que fazem você ganhar segundos e economizar energia.",
+        color: "text-slate-900"
     }
   ];
 
   return (
     <section className="py-24 bg-slate-50 relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
             
-            {/* Left Side: Visual Illustration */}
-            <div className="relative h-96 w-full rounded-[40px] bg-gradient-to-br from-brand-blue to-brand-cyan overflow-hidden shadow-2xl flex items-center justify-center group reveal">
-                {/* Decorative Circles */}
-                <div className="absolute top-10 left-10 w-20 h-20 bg-white/10 rounded-full"></div>
-                <div className="absolute bottom-20 right-10 w-32 h-32 bg-white/10 rounded-full"></div>
-                
-                {/* Central Text/Icon */}
-                <div className="text-center text-white relative z-10 p-8">
-                    <h3 className="font-display text-4xl font-bold mb-2">Venha fazer parte!</h3>
-                    <p className="text-cyan-100 text-lg">Agende uma aula experimental gratuita</p>
-                    <button 
-                        onClick={() => window.open(`https://wa.me/${COMPANY_INFO.whatsapp}`, '_blank')}
-                        className="mt-8 bg-white text-brand-blue font-bold py-3 px-8 rounded-full hover:scale-105 transition-transform shadow-lg hover:shadow-glow"
-                    >
-                        Falar no WhatsApp
-                    </button>
-                </div>
-                
-                {/* Animated Wave overlay */}
-                <div className="absolute bottom-0 left-0 w-full h-24 bg-white/20 rounded-t-full translate-y-12 animate-float"></div>
-            </div>
-
-            {/* Right Side: Features */}
             <div className="reveal">
-                <span className="text-brand-cyan font-bold tracking-widest uppercase text-sm mb-2 block">Diferenciais</span>
-                <h2 className="font-display text-4xl font-bold text-brand-dark mb-8">Por que escolher o Limonta's?</h2>
-                <div className="space-y-6">
+                <span className="text-brand-blue font-black tracking-[0.3em] text-xs mb-4 uppercase inline-block">Exclusividade</span>
+                <h2 className="font-display text-5xl md:text-7xl font-black text-slate-950 mb-12 tracking-tighter leading-none">
+                    POR QUE <br/> TREINAR COMIGO?
+                </h2>
+                <div className="space-y-12">
                     {features.map((f, i) => (
-                        <div key={i} className="flex items-start gap-4 p-4 rounded-2xl hover:bg-white transition-colors border border-transparent hover:border-slate-200">
-                            <div className={`w-14 h-14 rounded-2xl ${f.color} flex items-center justify-center shrink-0 shadow-sm`}>
-                                <f.icon size={28} />
+                        <div key={i} className="flex gap-8 group reveal">
+                            <div className={`mt-1 ${f.color} transition-transform group-hover:scale-125`}>
+                                <f.icon size={40} strokeWidth={2.5} />
                             </div>
                             <div>
-                                <h4 className="font-display text-xl font-bold text-gray-800 mb-1">{f.title}</h4>
-                                <p className="text-gray-600 leading-relaxed text-sm font-medium">
+                                <h4 className="font-black text-2xl text-slate-950 mb-2 tracking-tighter uppercase">{f.title}</h4>
+                                <p className="text-slate-500 font-medium leading-tight max-w-sm">
                                     {f.desc}
                                 </p>
                             </div>
                         </div>
                     ))}
+                </div>
+            </div>
+
+            <div className="relative reveal">
+                <div className="aspect-[4/5] bg-slate-200 border-[16px] border-white shadow-2xl relative overflow-hidden">
+                    <img 
+                        src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=1200" 
+                        alt="Matheus Moreira" 
+                        className="w-full h-full object-cover grayscale"
+                    />
+                    <div className="absolute inset-0 bg-brand-blue/10 mix-blend-multiply"></div>
+                </div>
+                {/* Float Badge */}
+                <div className="absolute -bottom-10 -left-10 bg-slate-950 p-10 text-white transform -rotate-3">
+                    <div className="flex gap-1 mb-4">
+                        {[...Array(5)].map((_, i) => <Star key={i} size={16} fill="white" />)}
+                    </div>
+                    <p className="font-black text-2xl tracking-tighter leading-none uppercase">10+ ANOS DE <br/> EXPERIÊNCIA</p>
                 </div>
             </div>
         </div>

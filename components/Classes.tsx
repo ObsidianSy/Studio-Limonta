@@ -1,208 +1,283 @@
+
 import React, { useState, useEffect, useRef } from 'react';
 import { CLASSES } from '../constants';
-import { X, CheckCircle2, Clock, Calendar, Star, ChevronRight, ChevronLeft } from 'lucide-react';
+import { X, ArrowRight, ChevronLeft, ChevronRight, Check } from 'lucide-react';
 import { ClassType } from '../types';
 
 interface ClassesProps {
   onOpenSchedule: (prefill: string) => void;
 }
 
+const CLASS_IMAGES: Record<string, string> = {
+  'performance': 'https://images.unsplash.com/photo-1530549387631-6c129c1bab01?q=80&w=1200',
+  'zero-medo': 'https://images.unsplash.com/photo-1519315901367-f34ff9154487?q=80&w=1200',
+  'kids-exclusive': 'https://images.unsplash.com/photo-1507034589631-9433c6bc453e?q=80&w=1200',
+  'reab': 'https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?q=80&w=1200'
+};
+
 const Classes: React.FC<ClassesProps> = ({ onOpenSchedule }) => {
   const [selectedClass, setSelectedClass] = useState<ClassType | null>(null);
+  const [activeIndex, setActiveIndex] = useState(0);
   const scrollRef = useRef<HTMLDivElement>(null);
-  const [isPaused, setIsPaused] = useState(false);
-
-  // Lock body scroll when modal is open
-  useEffect(() => {
-    if (selectedClass) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
-    }
-  }, [selectedClass]);
-
-  // Auto-scroll Effect
-  useEffect(() => {
-    const interval = setInterval(() => {
-      if (!isPaused && scrollRef.current) {
-        const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
-        
-        // Se chegou no fim (com uma margem de erro), volta para o começo
-        if (scrollLeft + clientWidth >= scrollWidth - 10) {
-           scrollRef.current.scrollTo({ left: 0, behavior: 'smooth' });
-        } else {
-           // Senão, rola um card para o lado (aprox 280px)
-           scrollRef.current.scrollBy({ left: 280, behavior: 'smooth' });
-        }
-      }
-    }, 3500); // 3.5 segundos para passar
-
-    return () => clearInterval(interval);
-  }, [isPaused]);
-
-  const scroll = (direction: 'left' | 'right') => {
-    if (scrollRef.current) {
-      const scrollAmount = 280;
-      scrollRef.current.scrollBy({
-        left: direction === 'left' ? -scrollAmount : scrollAmount,
-        behavior: 'smooth'
-      });
-    }
-  };
+  const autoPlayRef = useRef<number | null>(null);
+  
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [scrollLeft, setScrollLeft] = useState(0);
+  const [hasMoved, setHasMoved] = useState(false);
 
   const handleScheduleClass = () => {
     if (selectedClass) {
-        const text = `Interesse na turma ${selectedClass.title} (${selectedClass.ageRange})`;
+        const text = `Gostaria de agendar uma consultoria para a modalidade: ${selectedClass.title}`;
         setSelectedClass(null);
         setTimeout(() => onOpenSchedule(text), 100);
     }
   };
 
+  const scrollTo = (index: number) => {
+    if (!scrollRef.current) return;
+    const container = scrollRef.current;
+    const cardWidth = container.offsetWidth;
+    const targetScroll = index * cardWidth;
+    
+    container.scrollTo({
+      left: targetScroll,
+      behavior: 'smooth'
+    });
+    setActiveIndex(index);
+  };
+
+  const nextSlide = () => {
+    const next = (activeIndex + 1) % CLASSES.length;
+    scrollTo(next);
+  };
+
+  const prevSlide = () => {
+    const prev = (activeIndex - 1 + CLASSES.length) % CLASSES.length;
+    scrollTo(prev);
+  };
+
+  const startAutoPlay = () => {
+    stopAutoPlay();
+    autoPlayRef.current = window.setInterval(() => {
+      nextSlide();
+    }, 6000);
+  };
+
+  const stopAutoPlay = () => {
+    if (autoPlayRef.current) {
+      clearInterval(autoPlayRef.current);
+      autoPlayRef.current = null;
+    }
+  };
+
+  useEffect(() => {
+    startAutoPlay();
+    return () => stopAutoPlay();
+  }, [activeIndex]);
+
+  const onMouseDown = (e: React.MouseEvent) => {
+    if (!scrollRef.current) return;
+    setIsDragging(true);
+    setHasMoved(false);
+    setStartX(e.pageX - scrollRef.current.offsetLeft);
+    setScrollLeft(scrollRef.current.scrollLeft);
+    stopAutoPlay();
+  };
+
+  const onMouseLeave = () => {
+    if (isDragging) {
+        setIsDragging(false);
+        handleSnap();
+        startAutoPlay();
+    }
+  };
+
+  const onMouseUp = () => {
+    if (isDragging) {
+        setIsDragging(false);
+        handleSnap();
+        startAutoPlay();
+    }
+  };
+
+  const onMouseMove = (e: React.MouseEvent) => {
+    if (!isDragging || !scrollRef.current) return;
+    e.preventDefault();
+    const x = e.pageX - scrollRef.current.offsetLeft;
+    const walk = (x - startX) * 2;
+    if (Math.abs(walk) > 5) setHasMoved(true);
+    scrollRef.current.scrollLeft = scrollLeft - walk;
+  };
+
+  const handleSnap = () => {
+    if (!scrollRef.current) return;
+    const container = scrollRef.current;
+    const index = Math.round(container.scrollLeft / container.offsetWidth);
+    scrollTo(index);
+  };
+
   return (
-    <section id="turmas" className="py-20 bg-white relative">
+    <section id="turmas" className="py-32 bg-slate-50 overflow-hidden scroll-mt-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div className="text-center mb-10 reveal">
-          <span className="text-brand-cyan font-bold tracking-widest uppercase text-sm mb-2 block">Nossas Turmas</span>
-          <h2 className="font-display text-3xl md:text-4xl font-bold text-brand-dark mb-4">Tudo em um só lugar</h2>
-          <p className="text-gray-500 font-medium text-base md:text-lg max-w-2xl mx-auto">
-            Do bebê ao atleta, a metodologia certa para cada fase.
-          </p>
+        <div className="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-8">
+          <div className="max-w-2xl reveal">
+            <div className="flex items-center gap-3 mb-4">
+               <div className="w-12 h-[2px] bg-brand-cyan"></div>
+               <span className="text-brand-blue font-black uppercase tracking-[0.3em] text-xs">Nossos Serviços</span>
+            </div>
+            <h2 className="font-display text-5xl md:text-7xl font-black text-slate-950 mb-6 tracking-tighter uppercase leading-[0.85]">
+              DOMINE A <br/> <span className="text-brand-cyan">PISCINA</span>
+            </h2>
+          </div>
         </div>
 
-        {/* Carousel Container */}
-        <div 
-            className="relative group"
-            onMouseEnter={() => setIsPaused(true)}
-            onMouseLeave={() => setIsPaused(false)}
-            onTouchStart={() => setIsPaused(true)}
-            onTouchEnd={() => setIsPaused(false)}
-        >
-            
-            {/* Mobile Navigation Arrows */}
+        <div className="relative group/carousel">
+          {/* Subtle Navigation Arrows - Desktop Only */}
+          <div className="hidden lg:block">
             <button 
-              onClick={() => scroll('left')}
-              className="absolute left-0 top-1/2 -translate-y-1/2 z-20 bg-white/80 backdrop-blur-sm text-brand-dark p-2 rounded-full shadow-lg border border-slate-100 md:hidden -ml-2 hover:bg-white"
+              onClick={() => { stopAutoPlay(); prevSlide(); }}
+              className="absolute left-4 top-1/2 -translate-y-1/2 z-30 w-16 h-16 rounded-full bg-white/40 backdrop-blur-md border border-white/50 flex items-center justify-center text-slate-900 opacity-0 group-hover/carousel:opacity-100 hover:bg-white hover:shadow-xl transition-all duration-300 -translate-x-4 group-hover/carousel:translate-x-0"
               aria-label="Anterior"
             >
-              <ChevronLeft size={20} />
+              <ChevronLeft size={32} />
             </button>
-            
             <button 
-              onClick={() => scroll('right')}
-              className="absolute right-0 top-1/2 -translate-y-1/2 z-20 bg-white/80 backdrop-blur-sm text-brand-dark p-2 rounded-full shadow-lg border border-slate-100 md:hidden -mr-2 hover:bg-white"
+              onClick={() => { stopAutoPlay(); nextSlide(); }}
+              className="absolute right-4 top-1/2 -translate-y-1/2 z-30 w-16 h-16 rounded-full bg-white/40 backdrop-blur-md border border-white/50 flex items-center justify-center text-slate-900 opacity-0 group-hover/carousel:opacity-100 hover:bg-white hover:shadow-xl transition-all duration-300 translate-x-4 group-hover/carousel:translate-x-0"
               aria-label="Próximo"
             >
-              <ChevronRight size={20} />
+              <ChevronRight size={32} />
             </button>
+          </div>
 
-            {/* Scrollable Area */}
-            <div 
-              ref={scrollRef}
-              className="
-                flex overflow-x-auto snap-x snap-mandatory gap-4 pb-6 px-2 
-                md:grid md:grid-cols-2 lg:grid-cols-4 md:gap-6 md:pb-0 md:px-0
-                hide-scroll
-              "
-            >
-              {CLASSES.map((cls, idx) => (
+          <div 
+            ref={scrollRef}
+            onMouseDown={onMouseDown}
+            onMouseLeave={onMouseLeave}
+            onMouseUp={onMouseUp}
+            onMouseMove={onMouseMove}
+            className={`flex overflow-x-auto hide-scroll snap-x snap-mandatory ${isDragging ? 'cursor-grabbing' : 'cursor-grab'} select-none py-10 reveal`}
+            style={{ scrollBehavior: isDragging ? 'auto' : 'smooth' }}
+          >
+            {CLASSES.map((cls, idx) => (
+              <div 
+                key={cls.id} 
+                className="min-w-full md:min-w-full lg:min-w-full snap-center px-4"
+              >
                 <div 
-                  key={cls.id} 
-                  className="
-                    min-w-[260px] md:min-w-0 
-                    snap-center flex-shrink-0 h-full
-                    bg-brand-card rounded-2xl p-5 flex flex-col items-center text-center shadow-lg 
-                    transition-all duration-300 relative overflow-hidden border-b-4 border-icon-bg
-                    reveal
-                  "
-                  style={{ transitionDelay: `${idx * 100}ms` }}
+                    onClick={() => !hasMoved && setSelectedClass(cls)}
+                    className="bg-white rounded-[3rem] p-8 md:p-16 flex flex-col lg:flex-row items-stretch gap-12 border border-slate-100 shadow-[0_20px_50px_rgba(0,0,0,0.05)] transition-all duration-500 hover:shadow-[0_40px_80px_rgba(0,0,0,0.1)] relative overflow-hidden h-full cursor-pointer"
                 >
-                  {/* Decoration */}
-                  <div className="absolute top-2 left-2 text-white/20 scale-75"><svg width="40" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M18.5 12c.3 0 .5 0 .8.1.5-2.6 2.8-4.6 5.5-4.6 1.1 0 2.1.3 3 .9.8-3.6 4-6.4 7.7-6.4 3.1 0 5.8 1.9 7 4.6.8-.4 1.7-.6 2.7-.6 3.9 0 7 3.1 7 7 0 .5-.1 1-.2 1.5 2.2.7 3.8 2.8 3.8 5.2 0 3-2.5 5.5-5.5 5.5h-32c-2.5 0-4.5-2-4.5-4.5s2-4.5 4.5-4.5c.3 0 .7 0 1 .1 1.2-2.5 3.7-4.2 6.6-4.2z"/></svg></div>
-                  
-                  {/* Mascot - Smaller Size */}
-                  <div className="w-24 h-24 mb-3 bg-white rounded-full flex items-center justify-center text-5xl shadow-inner border-2 border-brand-yellow transform transition-transform">
-                    {cls.mascot}
-                  </div>
+                    <span className="absolute -top-10 -right-10 text-[12rem] md:text-[15rem] font-black text-slate-50 pointer-events-none leading-none select-none">
+                        0{idx + 1}
+                    </span>
 
-                  <h3 className="font-display text-xl font-bold text-white mb-0.5">{cls.title}</h3>
-                  <p className="text-cyan-100 text-xs font-bold mb-3 h-8 flex items-center justify-center leading-tight px-2">{cls.subtitle}</p>
-                  
-                  <div className="bg-white/10 rounded-lg p-2 w-full mb-4 backdrop-blur-sm">
-                    <p className="text-white text-[10px] font-bold uppercase tracking-wide">{cls.ageRange}</p>
-                  </div>
+                    <div className="w-full lg:w-1/2 relative z-10 flex flex-col">
+                        <div className="w-20 h-20 md:w-24 md:h-24 bg-brand-cyan/10 rounded-[2rem] flex items-center justify-center text-5xl md:text-6xl mb-8 shadow-inner">
+                            {cls.mascot}
+                        </div>
+                        <h3 className="font-display text-4xl md:text-6xl font-black text-slate-950 mb-3 tracking-tighter uppercase leading-none">
+                            {cls.title}
+                        </h3>
+                        <p className="text-brand-blue font-black text-xs md:text-sm mb-6 md:mb-8 uppercase tracking-[0.4em]">
+                            {cls.subtitle}
+                        </p>
+                        <p className="text-slate-500 text-lg md:text-xl mb-8 md:mb-10 leading-relaxed font-medium">
+                            {cls.description}
+                        </p>
+                        
+                        <div className="flex flex-wrap gap-2 md:gap-3 mb-10">
+                            {cls.learnings.slice(0, 3).map((l, i) => (
+                                <span key={i} className="px-3 py-1.5 md:px-4 md:py-2 bg-slate-50 text-slate-400 font-bold text-[10px] md:text-xs uppercase rounded-xl border border-slate-100">
+                                    {l}
+                                </span>
+                            ))}
+                        </div>
 
-                  <button 
-                    onClick={() => setSelectedClass(cls)}
-                    className="mt-auto bg-brand-yellow text-brand-dark px-6 py-2 rounded-full font-bold shadow-comic active:scale-95 transition-all w-full uppercase text-xs tracking-wide"
-                  >
-                    Ver Detalhes
-                  </button>
+                        <div className="mt-auto flex items-center gap-3 font-black text-slate-950 uppercase tracking-widest text-xs md:text-sm border-b-4 border-brand-cyan self-start pb-2 hover:text-brand-cyan transition-colors">
+                            VER DETALHES <ArrowRight size={20} />
+                        </div>
+                    </div>
+
+                    <div className="hidden lg:block w-1/2 min-h-[400px] rounded-[2rem] bg-slate-100 overflow-hidden relative">
+                         <img 
+                            src={CLASS_IMAGES[cls.id]} 
+                            alt={cls.title}
+                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                         />
+                         <div className="absolute inset-0 bg-brand-blue/20 mix-blend-multiply"></div>
+                    </div>
                 </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Dots Indicator */}
+          <div className="flex justify-center items-center mt-6 px-4 gap-2">
+            <button onClick={prevSlide} className="md:hidden w-12 h-12 bg-white shadow-md rounded-full flex items-center justify-center text-slate-900"><ChevronLeft size={24} /></button>
+            
+            <div className="flex gap-2 mx-4">
+              {CLASSES.map((_, i) => (
+                <button 
+                  key={i}
+                  onClick={() => scrollTo(i)}
+                  className={`transition-all duration-500 rounded-full ${
+                  activeIndex === i ? 'w-10 h-2 bg-brand-cyan shadow-glow' : 'w-2 h-2 bg-slate-300'
+                  }`}
+                  aria-label={`Ir para slide ${i + 1}`}
+                />
               ))}
             </div>
+
+            <button onClick={nextSlide} className="md:hidden w-12 h-12 bg-white shadow-md rounded-full flex items-center justify-center text-slate-900"><ChevronRight size={24} /></button>
+          </div>
         </div>
       </div>
 
-      {/* --- MODAL --- */}
+      {/* Modal remains the same */}
       {selectedClass && (
-        <div className="fixed inset-0 z-[60] flex items-center justify-center p-4">
-          <div 
-            className="absolute inset-0 bg-brand-dark/80 backdrop-blur-sm transition-opacity"
-            onClick={() => setSelectedClass(null)}
-          ></div>
-          <div className="bg-white rounded-[2rem] shadow-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto custom-scrollbar relative animate-float z-10 border-4 border-white">
-            <div className={`relative h-40 ${selectedClass.color} flex items-center justify-center overflow-hidden`}>
+        <div className="fixed inset-0 z-[60] flex items-center justify-center p-0 md:p-4">
+          <div className="absolute inset-0 bg-slate-950/98 backdrop-blur-md" onClick={() => setSelectedClass(null)}></div>
+          <div className="bg-white w-full h-full md:h-auto md:max-w-2xl relative z-10 animate-fadeIn md:rounded-[3rem] flex flex-col overflow-hidden shadow-[0_50px_100px_rgba(0,0,0,0.6)]">
+            
+            <div className={`p-8 md:p-16 ${selectedClass.color} text-white relative shrink-0`}>
                <button 
-                 onClick={() => setSelectedClass(null)}
-                 className="absolute top-4 right-4 bg-white/20 hover:bg-white/40 text-white rounded-full p-2 transition-colors backdrop-blur-md"
-               >
-                 <X size={24} />
-               </button>
-               <div className="text-center relative z-10 mt-4">
-                 <h2 className="font-display text-4xl font-bold text-white drop-shadow-md tracking-wide uppercase">{selectedClass.title}</h2>
-                 <p className="text-white font-medium text-lg opacity-90">{selectedClass.subtitle}</p>
-               </div>
+                  onClick={() => setSelectedClass(null)} 
+                  className="absolute top-6 right-6 md:top-10 md:right-10 text-white/50 hover:text-white p-2 bg-white/10 rounded-full transition-all z-20"
+                >
+                  <X size={24} />
+                </button>
+               <span className="text-white/40 font-black text-[10px] md:text-xs uppercase tracking-[0.4em] mb-2 md:mb-4 block">Ficha Técnica</span>
+               <h2 className="font-display text-3xl md:text-6xl font-black uppercase tracking-tighter leading-tight">{selectedClass.title}</h2>
+               <p className="font-bold opacity-70 tracking-[0.2em] mt-2 md:mt-4 text-[10px] md:text-sm">{selectedClass.subtitle}</p>
             </div>
-            <div className="absolute top-28 left-1/2 transform -translate-x-1/2">
-               <div className="w-28 h-28 bg-white rounded-full flex items-center justify-center text-7xl shadow-xl border-4 border-brand-yellow">
-                 {selectedClass.mascot}
-               </div>
-            </div>
-            <div className="px-8 pb-8 pt-16 text-center">
-              <div className="flex flex-wrap justify-center gap-4 mb-6">
-                 <div className="bg-blue-50 text-blue-700 px-4 py-2 rounded-xl text-sm font-bold flex items-center gap-2">
-                    <Calendar size={16} />
-                    {selectedClass.ageRange}
-                 </div>
-                 <div className="bg-orange-50 text-orange-600 px-4 py-2 rounded-xl text-sm font-bold flex items-center gap-2">
-                    <Clock size={16} />
-                    {selectedClass.duration}
-                 </div>
-              </div>
-              <p className="text-gray-600 text-lg leading-relaxed mb-8 font-medium">
+
+            <div className="p-8 md:p-16 overflow-y-auto flex-1 custom-scrollbar bg-white">
+              <p className="text-slate-500 text-lg md:text-xl font-medium leading-relaxed mb-10 md:mb-12">
                 {selectedClass.description}
               </p>
-              <div className="bg-slate-50 rounded-2xl p-6 text-left border border-slate-100 mb-8">
-                 <h4 className="font-display text-xl font-bold text-brand-dark mb-4 flex items-center gap-2">
-                   <Star className="text-brand-yellow fill-current" />
-                   O que aprendemos brincando:
-                 </h4>
-                 <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                    {selectedClass.learnings.map((item, idx) => (
-                      <li key={idx} className="flex items-start gap-2 text-gray-700 font-medium text-sm">
-                        <CheckCircle2 size={18} className="text-brand-cyan shrink-0 mt-0.5" />
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                 </ul>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 mb-12 md:mb-16">
+                 {selectedClass.learnings.map((item, idx) => (
+                   <div key={idx} className="flex items-center gap-4 p-4 bg-slate-50 rounded-2xl border border-slate-100 group hover:border-brand-cyan/30 transition-all">
+                     <div className="w-8 h-8 rounded-lg bg-brand-cyan/20 flex items-center justify-center text-brand-cyan shrink-0">
+                        <Check size={18} strokeWidth={3} />
+                     </div>
+                     <span className="text-slate-800 font-black text-[10px] md:text-xs uppercase tracking-wider">{item}</span>
+                   </div>
+                 ))}
               </div>
-              <button 
-                onClick={handleScheduleClass}
-                className="inline-block w-full bg-brand-dark hover:bg-brand-blue text-white font-bold py-4 rounded-xl shadow-comic hover:shadow-none hover:translate-y-1 transition-all uppercase tracking-wider"
-              >
-                Agendar Aula Experimental
-              </button>
+
+              <div className="sticky bottom-0 bg-white pt-4 pb-4 md:static">
+                <button 
+                  onClick={handleScheduleClass}
+                  className="group w-full bg-slate-950 text-white font-black py-5 md:py-7 rounded-2xl text-lg md:text-xl uppercase tracking-widest hover:bg-brand-blue transition-all shadow-2xl active:scale-95 flex items-center justify-center gap-4"
+                >
+                  SOLICITAR AGENDAMENTO <ArrowRight size={24} className="group-hover:translate-x-2 transition-transform" />
+                </button>
+              </div>
             </div>
           </div>
         </div>
