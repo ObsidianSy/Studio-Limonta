@@ -63,7 +63,7 @@ const Classes: React.FC<ClassesProps> = ({ onOpenSchedule }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="text-center mb-10 reveal">
-          <span className="text-brand-cyan font-bold tracking-widest uppercase text-sm mb-2 block">Nossas Turmas</span>
+          <span className="text-brand-cyan font-bold tracking-widest uppercase text-sm mb-2 block">Minhas Turmas</span>
           <h2 className="font-display text-3xl md:text-4xl font-bold text-brand-dark mb-4">Tudo em um só lugar</h2>
           <p className="text-gray-500 font-medium text-base md:text-lg max-w-2xl mx-auto">
             Do bebê ao atleta, a metodologia certa para cada fase.
@@ -121,8 +121,10 @@ const Classes: React.FC<ClassesProps> = ({ onOpenSchedule }) => {
                   <div className="absolute top-2 left-2 text-white/20 scale-75"><svg width="40" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M18.5 12c.3 0 .5 0 .8.1.5-2.6 2.8-4.6 5.5-4.6 1.1 0 2.1.3 3 .9.8-3.6 4-6.4 7.7-6.4 3.1 0 5.8 1.9 7 4.6.8-.4 1.7-.6 2.7-.6 3.9 0 7 3.1 7 7 0 .5-.1 1-.2 1.5 2.2.7 3.8 2.8 3.8 5.2 0 3-2.5 5.5-5.5 5.5h-32c-2.5 0-4.5-2-4.5-4.5s2-4.5 4.5-4.5c.3 0 .7 0 1 .1 1.2-2.5 3.7-4.2 6.6-4.2z"/></svg></div>
                   
                   {/* Mascot - Smaller Size */}
-                  <div className="w-24 h-24 mb-3 bg-white rounded-full flex items-center justify-center text-5xl shadow-inner border-2 border-brand-yellow transform transition-transform">
-                    {cls.mascot}
+                  <div className="w-24 h-24 mb-3 bg-white rounded-full flex items-center justify-center text-5xl shadow-inner border-2 border-brand-yellow transform transition-transform overflow-hidden">
+                    {cls.mascot.startsWith('http') || cls.mascot.startsWith('/') ? (
+                      <img src={cls.mascot} alt={cls.title} className="w-full h-full object-cover scale-[2]" />
+                    ) : cls.mascot}
                   </div>
 
                   <h3 className="font-display text-xl font-bold text-white mb-0.5">{cls.title}</h3>
@@ -164,12 +166,14 @@ const Classes: React.FC<ClassesProps> = ({ onOpenSchedule }) => {
                  <p className="text-white font-medium text-lg opacity-90">{selectedClass.subtitle}</p>
                </div>
             </div>
-            <div className="absolute top-28 left-1/2 transform -translate-x-1/2">
-               <div className="w-28 h-28 bg-white rounded-full flex items-center justify-center text-7xl shadow-xl border-4 border-brand-yellow">
-                 {selectedClass.mascot}
+            <div className="flex justify-center -mt-8 relative z-10">
+               <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center text-4xl shadow-xl border-3 border-brand-yellow overflow-hidden">
+                 {selectedClass.mascot.startsWith('http') || selectedClass.mascot.startsWith('/') ? (
+                   <img src={selectedClass.mascot} alt={selectedClass.title} className="w-full h-full object-cover" />
+                 ) : selectedClass.mascot}
                </div>
             </div>
-            <div className="px-8 pb-8 pt-16 text-center">
+            <div className="px-8 pb-8 pt-4 text-center">
               <div className="flex flex-wrap justify-center gap-4 mb-6">
                  <div className="bg-blue-50 text-blue-700 px-4 py-2 rounded-xl text-sm font-bold flex items-center gap-2">
                     <Calendar size={16} />
@@ -186,7 +190,7 @@ const Classes: React.FC<ClassesProps> = ({ onOpenSchedule }) => {
               <div className="bg-slate-50 rounded-2xl p-6 text-left border border-slate-100 mb-8">
                  <h4 className="font-display text-xl font-bold text-brand-dark mb-4 flex items-center gap-2">
                    <Star className="text-brand-yellow fill-current" />
-                   O que aprendemos brincando:
+                   O que seu filho aprende brincando:
                  </h4>
                  <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
                     {selectedClass.learnings.map((item, idx) => (

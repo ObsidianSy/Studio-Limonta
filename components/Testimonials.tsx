@@ -34,9 +34,11 @@ const Testimonials: React.FC = () => {
               </p>
               
               <div className="flex items-center gap-4 border-t border-slate-200 pt-4">
-                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-brand-blue to-brand-cyan flex items-center justify-center text-white font-bold font-display">
-                    {t.name.charAt(0)}
-                </div>
+                <img
+                    src={t.avatar}
+                    alt={t.name}
+                    className="w-12 h-12 rounded-full object-cover border-2 border-brand-cyan shadow-sm"
+                />
                 <div>
                     <h4 className="font-bold text-brand-dark text-sm">{t.name}</h4>
                     <span className="text-xs text-brand-cyan font-bold uppercase">{t.role}</span>

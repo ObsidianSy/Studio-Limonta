@@ -38,9 +38,9 @@ const Features: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         <div className="text-center mb-10 text-white reveal">
-          <h2 className="font-display text-3xl md:text-5xl font-bold mb-4 drop-shadow-md">Nossa Metodologia</h2>
+          <h2 className="font-display text-3xl md:text-5xl font-bold mb-4 drop-shadow-md">Minha Metodologia</h2>
           <p className="text-cyan-50 text-lg font-medium max-w-2xl mx-auto">
-            Ensino estruturado com amor e técnica.
+            Ensino personalizado com técnica e dedicação.
           </p>
         </div>
 
@@ -76,7 +76,7 @@ const Features: React.FC = () => {
                 "
             >
                {[
-                 { icon: GraduationCap, label: "Professores Certificados", desc: "Equipe em constante atualização técnica." },
+                 { icon: GraduationCap, label: "Professor Certificado", desc: "Em constante atualização técnica." },
                  { icon: Award, label: "Método Exclusivo", desc: "Sistema de ensino próprio e validado." },
                  { icon: Users, label: "Família na Água", desc: "Participação ativa no desenvolvimento." },
                  { icon: Heart, label: "Autonomia Infantil", desc: "Foco na confiança e autoestima." },

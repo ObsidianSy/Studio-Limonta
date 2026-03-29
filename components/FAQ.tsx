@@ -4,19 +4,19 @@ import { Plus, Minus, HelpCircle } from 'lucide-react';
 const FAQS = [
   {
     question: "A piscina é aquecida e tratada?",
-    answer: "Sim! Nossa piscina possui temperatura controlada ideal para bebês e crianças (entre 30°C e 32°C). Utilizamos tratamento de ozônio e sal, que é muito mais saudável para a pele e olhos sensíveis das crianças."
+    answer: "Sim! A piscina possui temperatura controlada ideal para bebês e crianças (entre 30°C e 32°C). Utilizo tratamento de ozônio e sal, que é muito mais saudável para a pele e olhos sensíveis das crianças."
   },
   {
     question: "A partir de qual idade meu filho pode começar?",
-    answer: "Recebemos bebês a partir dos 6 meses de idade na turma Tetéia. É uma fase essencial para adaptação e desenvolvimento motor."
+    answer: "Recebo bebês a partir dos 6 meses de idade na turma Tetéia. É uma fase essencial para adaptação e desenvolvimento motor."
   },
   {
     question: "Os pais precisam entrar na água?",
-    answer: "Nas turmas de bebês (Tetéia e Tico-Tico), é obrigatória a presença de um responsável na água para fortalecer o vínculo e dar segurança. A partir da turma Coral (aprox. 2 anos e meio), as crianças já entram com os professores."
+    answer: "Nas turmas de bebês (Tetéia e Tico-Tico), é obrigatória a presença de um responsável na água para fortalecer o vínculo e dar segurança. A partir da turma Coral (aprox. 2 anos e meio), as crianças já entram comigo."
   },
   {
     question: "Como funcionam as aulas experimentais?",
-    answer: "A aula experimental é gratuita e serve para conhecermos o nível da criança e apresentarmos nossa metodologia. Basta agendar pelo botão de WhatsApp aqui no site."
+    answer: "A aula experimental é gratuita e serve para eu conhecer o nível da criança e apresentar minha metodologia. Basta agendar pelo botão de WhatsApp aqui no site."
   }
 ];
 
@@ -36,7 +36,7 @@ const FAQ: React.FC = () => {
                 <HelpCircle size={16} /> <span className="text-sm font-bold uppercase tracking-wider">Dúvidas Comuns</span>
             </div>
           <h2 className="font-display text-3xl md:text-4xl font-bold text-white mb-4">Perguntas Frequentes</h2>
-          <p className="text-cyan-100">Tire suas dúvidas sobre nosso funcionamento</p>
+          <p className="text-cyan-100">Tire suas dúvidas sobre meu trabalho</p>
         </div>
 
         <div className="space-y-4">

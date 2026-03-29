@@ -2,18 +2,20 @@ import { Users, Trophy, Heart, Building2, Star } from "lucide-react";
 import { ClassType, Testimonial } from "./types";
 
 export const COMPANY_INFO = {
-  name: "Studio Limontas",
-  subtitle: "Natação Infantil",
-  slogan: "Sistema de Aprendizado Limonta's",
-  address: "Rua José Russo, 737 - Franca/SP",
-  whatsapp: "5516982558594", 
-  instagram: "@limontasnatacaoinfantil",
-  googleMaps: "https://www.google.com/maps/place/Limonta's+Nata%C3%A7%C3%A3o+Infantil/@-20.5235767,-47.4010658,17z/data=!3m1!4b1!4m6!3m5!1s0x94b0a7540e821791:0xf84dbc4df8feff71!8m2!3d-20.5235767!4d-47.3984909!16s%2Fg%2F11s_x4mvyl?entry=ttu"
+  name: "Matheus Moreira",
+  subtitle: "Personal Aquático",
+  slogan: "Natação Infantil com Técnica e Diversão",
+  address: "Atendimento Exclusivo - Franca/SP",
+  phone: "(16) 99300-8381",
+  whatsapp: "5516993008381",
+  instagram: "@tiomatheus.natacao",
+  instagramUrl: "https://www.instagram.com/tiomatheus.natacao?igsh=MWE0MmlucmF5cHV0Mg%3D%3D",
+  googleMaps: "https://www.google.com/maps"
 };
 
 export const METHODOLOGY_INTRO = {
   title: "Turma Ocean's",
-  text: "No Studio Limontas, a Turma Ocean's é uma verdadeira jornada de aventuras na água! Aqui, as crianças vão aprender de maneira divertida e segura, começando com as habilidades básicas de natação e evoluindo até dominar os nados mais incríveis. Cada aula é uma exploração aquática, onde as crianças ganham confiança e ficam mais fortes a cada desafio."
+  text: "Com o Matheus Moreira, a Turma Ocean's é uma verdadeira jornada de aventuras na água! Aqui, as crianças vão aprender de maneira divertida e segura, começando com as habilidades básicas de natação e evoluindo até dominar os nados mais incríveis. Cada aula é uma exploração aquática, onde as crianças ganham confiança e ficam mais fortes a cada desafio."
 };
 
 // Colors updated to match the flyers exactly
@@ -22,7 +24,7 @@ export const CLASSES: ClassType[] = [
     id: "teteia",
     title: "TETÉIA",
     subtitle: "A Estrelinha do Mar",
-    mascot: "⭐",
+    mascot: new URL('/metodos/img-teteia.png', import.meta.url).href,
     ageRange: "6 meses a 1 ano e 6 meses",
     duration: "30 min",
     description: "Os pequenos exploradores começam sua jornada! De forma leve e divertida, aprendem a se sentir seguros na água ao lado de quem amam.",
@@ -38,7 +40,7 @@ export const CLASSES: ClassType[] = [
     id: "tico-tico",
     title: "TICO TICO",
     subtitle: "O Pequeno Caranguejo",
-    mascot: "🦀",
+    mascot: new URL('/metodos/tico-tico.png', import.meta.url).href,
     ageRange: "1 ano e 6 meses a 2 anos e 6 meses",
     duration: "30 min",
     description: "Hora de virar caranguejinho! Começam a se movimentar com mais liberdade e confiança, sempre acompanhados.",
@@ -152,16 +154,19 @@ export const TESTIMONIALS: Testimonial[] = [
   {
     name: "Ana Paula",
     role: "Mãe do Pedro",
-    text: "O método lúdico com os animais fez meu filho perder o medo de água em duas aulas!"
+    text: "O método lúdico com os animais fez meu filho perder o medo de água em duas aulas!",
+    avatar: "https://randomuser.me/api/portraits/women/44.jpg"
   },
   {
     name: "Carlos Eduardo",
     role: "Pai da Sofia",
-    text: "Incrível ver a evolução técnica dela, já está nadando sozinha e mergulhando fundo."
+    text: "Incrível ver a evolução técnica dela, já está nadando sozinha e mergulhando fundo.",
+    avatar: "https://randomuser.me/api/portraits/men/32.jpg"
   },
   {
     name: "Mariana Silva",
     role: "Mãe do Lucas",
-    text: "A aula para bebês é apaixonante. Momentos únicos de conexão com meu filho."
+    text: "A aula para bebês é apaixonante. Momentos únicos de conexão com meu filho.",
+    avatar: "https://randomuser.me/api/portraits/women/68.jpg"
   }
 ];

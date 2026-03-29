@@ -28,9 +28,9 @@ const CookieConsent: React.FC = () => {
              <Cookie size={24} />
            </div>
            <div>
-             <h4 className="font-display font-bold text-brand-dark mb-1">Nós usamos cookies!</h4>
+             <h4 className="font-display font-bold text-brand-dark mb-1">Este site usa cookies!</h4>
              <p className="text-sm text-gray-600 leading-snug">
-               Utilizamos cookies para melhorar sua experiência no nosso site. Ao continuar navegando, você concorda com nossa política.
+               Utilizo cookies para melhorar sua experiência no site. Ao continuar navegando, você concorda com a política de privacidade.
              </p>
            </div>
         </div>

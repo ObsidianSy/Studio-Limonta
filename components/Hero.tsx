@@ -1,6 +1,8 @@
 import React from 'react';
 import { Play, ChevronDown, Waves } from 'lucide-react';
 
+const heroImgUrl = new URL('/img-hero.jpeg', import.meta.url).href;
+
 interface HeroProps {
   onOpenSchedule: () => void;
 }
@@ -38,7 +40,7 @@ const Hero: React.FC<HeroProps> = ({ onOpenSchedule }) => {
       </div>
 
       {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 relative z-10 pt-24 pb-16">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 relative z-10 pt-44 sm:pt-48 pb-32 sm:pb-40">
         <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-20">
 
           {/* Left: Text Content */}
@@ -46,7 +48,7 @@ const Hero: React.FC<HeroProps> = ({ onOpenSchedule }) => {
             {/* Badge */}
             <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-5 py-2 bg-brand-yellow text-brand-dark font-bold text-xs sm:text-sm mb-4 sm:mb-8 rounded-full shadow-lg">
               <span className="w-2 h-2 bg-brand-dark rounded-full animate-pulse"></span>
-              Matrículas Abertas 2025
+              Matrículas Abertas 2026
             </div>
 
             {/* Title */}
@@ -60,7 +62,7 @@ const Hero: React.FC<HeroProps> = ({ onOpenSchedule }) => {
             {/* Subtitle */}
             <p className="text-white/80 text-sm sm:text-lg lg:text-xl mb-6 sm:mb-10 font-medium leading-relaxed max-w-2xl mx-auto lg:mx-0 px-2 sm:px-0">
               Natação infantil com amor, técnica e segurança.
-              Desenvolvemos o potencial do seu filho em um ambiente acolhedor e divertido.
+              Desenvolvo o potencial do seu filho em um ambiente acolhedor e divertido.
             </p>
 
             {/* CTA Buttons */}
@@ -115,7 +117,7 @@ const Hero: React.FC<HeroProps> = ({ onOpenSchedule }) => {
               <div className="relative bg-white/10 backdrop-blur-md rounded-3xl p-8 border border-white/20 shadow-2xl">
                 <div className="aspect-square rounded-2xl overflow-hidden mb-6">
                   <img
-                    src="https://images.unsplash.com/photo-1535572290543-960a8046f5af?q=80&w=600&auto=format&fit=crop"
+                    src={heroImgUrl}
                     alt="Criança nadando feliz"
                     className="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
                   />
@@ -125,7 +127,7 @@ const Hero: React.FC<HeroProps> = ({ onOpenSchedule }) => {
                     Primeira aula grátis!
                   </h3>
                   <p className="text-white/70 mb-4">
-                    Venha conhecer nossa metodologia sem compromisso
+                    Venha conhecer minha metodologia sem compromisso
                   </p>
                   <button
                     onClick={onOpenSchedule}

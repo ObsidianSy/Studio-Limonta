@@ -10,6 +10,7 @@ export interface Testimonial {
   name: string;
   text: string;
   role: string;
+  avatar: string;
 }
 
 export interface ClassType {

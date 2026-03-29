@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Waves } from 'lucide-react';
 
-const logoUrl = new URL('/logo-limonta.png', import.meta.url).href;
+const logoUrl = new URL('/logo-math.jpeg', import.meta.url).href;
 
 interface SplashScreenProps {
   onFinish: () => void;
@@ -32,9 +32,8 @@ const SplashScreen: React.FC<SplashScreenProps> = ({ onFinish }) => {
 
   return (
     <div
-      className={`fixed inset-0 z-[100] flex items-center justify-center bg-gradient-to-br from-brand-dark via-brand-blue to-brand-cyan transition-all duration-700 ${
-        stage === 'finishing' ? 'opacity-0 scale-110' : 'opacity-100 scale-100'
-      }`}
+      className={`fixed inset-0 z-[100] flex items-center justify-center bg-gradient-to-br from-brand-dark via-brand-blue to-brand-cyan transition-all duration-700 ${stage === 'finishing' ? 'opacity-0 scale-110' : 'opacity-100 scale-100'
+        }`}
     >
       {/* Animated Background Bubbles */}
       <div className="absolute inset-0 overflow-hidden">
@@ -77,22 +76,22 @@ const SplashScreen: React.FC<SplashScreenProps> = ({ onFinish }) => {
           <div className="absolute -inset-8 border-2 border-transparent border-b-white/30 border-l-white/30 rounded-full animate-spin" style={{ animationDuration: '3s', animationDirection: 'reverse' }} />
 
           {/* Logo */}
-          <div className="relative w-40 h-40 sm:w-44 sm:h-44 md:w-48 md:h-48 bg-white rounded-full p-5 shadow-2xl animate-bounce" style={{ animationDuration: '2s' }}>
+          <div className="relative w-32 h-32 sm:w-36 sm:h-36 md:w-40 md:h-40 bg-white rounded-full p-1 shadow-2xl animate-bounce" style={{ animationDuration: '2s' }}>
             <img
               src={logoUrl}
-              alt="Studio Limontas"
-              className="w-full h-full object-contain"
+              alt="Matheus Moreira"
+              className="w-full h-full object-contain scale-150"
             />
           </div>
         </div>
 
         {/* Text */}
         <h1 className="font-display text-4xl md:text-5xl font-bold text-white mb-2 animate-pulse">
-          Studio Limontas
+          Matheus Moreira
         </h1>
         <p className="text-white/70 text-lg mb-8 flex items-center gap-2">
           <Waves className="w-5 h-5" />
-          Natação Infantil
+          Personal Aquático
           <Waves className="w-5 h-5" />
         </p>
 

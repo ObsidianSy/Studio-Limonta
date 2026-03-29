@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, MapPin, Phone, Calendar, Home, BookOpen, Waves } from 'lucide-react';
+import { Menu, X, MapPin, Phone, Calendar, Home, BookOpen, Waves, Instagram } from 'lucide-react';
 import { COMPANY_INFO } from '../constants';
 
-const logoUrl = new URL('/logo-limonta.png', import.meta.url).href;
+const logoUrl = new URL('/logo-math.jpeg', import.meta.url).href;
 
 interface NavbarProps {
   onOpenSchedule: () => void;
@@ -11,22 +11,20 @@ interface NavbarProps {
 const Navbar: React.FC<NavbarProps> = ({ onOpenSchedule }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
+  const [isScrolled, setIsScrolled] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
 
-      // Se estiver no topo, sempre mostrar
+      setIsScrolled(currentScrollY > 50);
+
       if (currentScrollY < 100) {
         setIsVisible(true);
-      }
-      // Scrollando pra cima = mostrar navbar
-      else if (currentScrollY < lastScrollY) {
+      } else if (currentScrollY < lastScrollY) {
         setIsVisible(true);
-      }
-      // Scrollando pra baixo = esconder navbar
-      else if (currentScrollY > lastScrollY) {
+      } else if (currentScrollY > lastScrollY) {
         setIsVisible(false);
       }
 
@@ -54,9 +52,9 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenSchedule }) => {
 
   return (
     <>
-      <nav className={`fixed w-full z-50 bg-transparent transition-transform duration-300 ${
+      <nav className={`fixed w-full z-50 transition-all duration-300 ${
         isVisible ? 'translate-y-0' : '-translate-y-full'
-      }`}>
+      } ${isScrolled ? 'bg-brand-dark/95 backdrop-blur-md shadow-lg' : 'bg-transparent'}`}>
 
         {/* Top Bar - Info */}
         <div className="hidden lg:block bg-black/20 backdrop-blur-sm">
@@ -74,12 +72,13 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenSchedule }) => {
               </div>
               <div className="flex items-center gap-4">
                 <a
-                  href="https://www.instagram.com/limontasnatacaoinfantil/"
+                  href={COMPANY_INFO.instagramUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="text-white/80 hover:text-brand-yellow transition-colors"
+                  className="flex items-center gap-2 text-white hover:text-brand-yellow transition-colors font-semibold"
                 >
-                  @limontasnatacaoinfantil
+                  <Instagram size={18} />
+                  {COMPANY_INFO.instagram}
                 </a>
               </div>
             </div>
@@ -88,7 +87,7 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenSchedule }) => {
 
         {/* Main Nav */}
         <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16 sm:h-20">
+          <div className="flex items-center justify-between h-20 sm:h-24">
 
             {/* Logo */}
             <div
@@ -97,12 +96,12 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenSchedule }) => {
             >
               <img
                   src={logoUrl}
-                  alt="Studio Limontas Logo"
-                  className="h-12 sm:h-14 md:h-16 w-auto object-contain group-hover:scale-105 transition-transform drop-shadow-lg"
+                  alt="Matheus Moreira Logo"
+                  className="h-16 sm:h-20 md:h-24 w-auto object-contain group-hover:scale-105 transition-transform drop-shadow-lg"
                 />
               <div className="hidden sm:block text-white">
-                <span className="font-display text-lg sm:text-xl font-bold block leading-tight">Studio</span>
-                <span className="font-display text-lg sm:text-xl font-bold text-brand-cyan">Limontas</span>
+                <span className="font-display text-xl sm:text-2xl font-bold block leading-tight">Matheus</span>
+                <span className="font-display text-xl sm:text-2xl font-bold text-brand-cyan">Moreira</span>
               </div>
             </div>
 
@@ -184,10 +183,10 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenSchedule }) => {
             {/* Logo & Title */}
             <div className="flex flex-col items-center mb-10">
               <div className="w-24 h-24 bg-white rounded-2xl flex items-center justify-center shadow-xl mb-4 p-2">
-                <img src={logoUrl} alt="Studio Limontas" className="w-full h-full object-contain" />
+                <img src={logoUrl} alt="Matheus Moreira" className="w-full h-full object-contain" />
               </div>
-              <h2 className="font-display text-2xl font-bold text-white">Studio Limontas</h2>
-              <p className="text-white/60 text-sm mt-1">Natação Infantil</p>
+              <h2 className="font-display text-2xl font-bold text-white">Matheus Moreira</h2>
+              <p className="text-white/60 text-sm mt-1">Personal Aquático</p>
             </div>
 
             {/* Navigation Links */}

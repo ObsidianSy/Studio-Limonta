@@ -4,7 +4,7 @@ import { HighlightProps } from '../types';
 
 const highlightsData: HighlightProps[] = [
   { label: "Dia a Dia", icon: Heart, color: "from-pink-500 to-rose-500" },
-  { label: "Equipe", icon: Users, color: "from-blue-500 to-cyan-500" },
+  { label: "Sobre Mim", icon: Users, color: "from-blue-500 to-cyan-500" },
   { label: "Feedbacks", icon: Star, color: "from-yellow-400 to-orange-500" },
   { label: "Turmas", icon: Trophy, color: "from-green-400 to-emerald-500" },
   { label: "Estrutura", icon: Building2, color: "from-purple-500 to-indigo-500" },
@@ -12,7 +12,7 @@ const highlightsData: HighlightProps[] = [
 
 const Highlights: React.FC = () => {
   return (
-    <div className="relative w-full bg-slate-50 pt-8 sm:pt-10 pb-16 sm:pb-20">
+    <div className="relative w-full bg-slate-50 pt-12 sm:pt-16 pb-16 sm:pb-20">
       <div className="max-w-7xl mx-auto px-2 sm:px-4 overflow-x-auto hide-scroll relative z-10">
         <div className="flex justify-center gap-3 min-[400px]:gap-5 sm:gap-8 md:gap-10 px-1">
           {highlightsData.map((item, index) => (
@@ -30,12 +30,12 @@ const Highlights: React.FC = () => {
           ))}
         </div>
       </div>
-      
+
       {/* Wave Bottom Decoration - Transitions to Features (Cyan) */}
       <div className="absolute -bottom-1 left-0 w-full text-brand-cyan z-0">
-         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" className="w-full h-16 fill-current">
-            <path fillOpacity="1" d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,224C672,245,768,267,864,261.3C960,256,1056,224,1152,208C1248,192,1344,192,1392,192L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
-         </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" className="w-full h-16 fill-current">
+          <path fillOpacity="1" d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,224C672,245,768,267,864,261.3C960,256,1056,224,1152,208C1248,192,1344,192,1392,192L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+        </svg>
       </div>
     </div>
   );

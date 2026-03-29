@@ -6,19 +6,19 @@ const Features: React.FC = () => {
     {
         icon: ShieldCheck,
         title: "Segurança Total",
-        desc: "Piscinas tratadas, ambiente monitorado e professores certificados em salvamento.",
+        desc: "Piscina tratada, ambiente monitorado e professor certificado em salvamento.",
         color: "bg-blue-100 text-blue-600"
     },
     {
         icon: Heart,
         title: "Metodologia Afetiva",
-        desc: "Respeitamos o tempo de cada criança, criando vínculo e confiança antes da técnica.",
+        desc: "Respeito o tempo de cada criança, criando vínculo e confiança antes da técnica.",
         color: "bg-red-100 text-red-500"
     },
     {
         icon: UserCheck,
-        title: "Turmas Reduzidas",
-        desc: "Atenção individualizada para garantir a evolução correta de cada peixinho.",
+        title: "Turma Reduzida",
+        desc: "Atenção individual para garantir a evolução correta de cada aluno.",
         color: "bg-green-100 text-green-600"
     },
     {
@@ -55,7 +55,7 @@ const Features: React.FC = () => {
 
             {/* Right Side: Features */}
             <div>
-                <h2 className="font-display text-4xl font-bold text-[#021b3c] mb-8">Por que escolher o Limonta's?</h2>
+                <h2 className="font-display text-4xl font-bold text-[#021b3c] mb-8">Por que escolher o Matheus?</h2>
                 <div className="space-y-6">
                     {features.map((f, i) => (
                         <div key={i} className="flex items-start gap-4 p-4 rounded-2xl hover:bg-slate-50 transition-colors">

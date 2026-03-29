@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(xargs grep:*)",
+      "Bash(npx jest:*)",
+      "Bash(npx tsc:*)",
+      "Bash(pushd \"C:/Users/wesle/OneDrive/Documentos/GitHub/Reservei.app_API\")",
+      "Bash(echo \"EXIT: $?\")",
+      "Bash(popd)"
+    ]
+  }
+}

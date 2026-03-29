@@ -1,0 +1,45 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "reservei-api",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "start:dev"],
+      "port": 3333
+    },
+    {
+      "name": "monatary-api",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "start:dev"],
+      "port": 3001,
+      "autoPort": false
+    },
+    {
+      "name": "monatary-mind",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev"],
+      "port": 8080,
+      "autoPort": false
+    },
+    {
+      "name": "vizzy-frontend",
+      "runtimeExecutable": "node",
+      "runtimeArgs": ["../Vizzy-AI/node_modules/vite/bin/vite.js", "../Vizzy-AI", "--host", "--port", "3336", "--config", "../Vizzy-AI/vite.config.ts"],
+      "port": 3336
+    },
+    {
+      "name": "stark-frontend",
+      "runtimeExecutable": "node",
+      "runtimeArgs": ["../stark-architect-showcase/node_modules/vite/bin/vite.js", "../stark-architect-showcase", "--host", "--config", "../stark-architect-showcase/vite.config.ts"],
+      "port": 8086,
+      "autoPort": true
+    },
+    {
+      "name": "reservei-web",
+      "runtimeExecutable": "node",
+      "runtimeArgs": ["../Reservei_Web/node_modules/vite/bin/vite.js", "../Reservei_Web", "--host", "--config", "../Reservei_Web/vite.config.ts"],
+      "port": 5173,
+      "autoPort": true
+    }
+  ]
+}
