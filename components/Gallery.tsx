@@ -24,7 +24,7 @@ const Features: React.FC = () => {
     {
         icon: Medal,
         title: "Evolução Constante",
-        desc: "Sistema de níveis estruturado (do Tetéia ao Tida) para acompanhar o crescimento.",
+        desc: "Sistema de níveis estruturado (do Ondinha ao Oceano) para acompanhar o crescimento.",
         color: "bg-yellow-100 text-yellow-600"
     }
   ];

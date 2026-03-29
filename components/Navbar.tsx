@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, MapPin, Phone, Calendar, Home, BookOpen, Waves, Instagram } from 'lucide-react';
+import { Menu, X, Phone, Calendar, Home, BookOpen, Waves, Instagram } from 'lucide-react';
 import { COMPANY_INFO } from '../constants';
 
 const logoUrl = new URL('/logo-math.jpeg', import.meta.url).href;
@@ -39,14 +39,10 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenSchedule }) => {
     window.open(`https://wa.me/${COMPANY_INFO.whatsapp}`, '_blank');
   };
 
-  const handleLocation = () => {
-    window.open(COMPANY_INFO.googleMaps, '_blank');
-  };
-
   const navLinks = [
     { label: 'Início', href: '#inicio', icon: Home },
     { label: 'Metodologia', href: '#metodologia', icon: BookOpen },
-    { label: 'Localização', onClick: handleLocation, icon: MapPin },
+    { label: 'Turmas', href: '#turmas', icon: Waves },
     { label: 'Contato', onClick: handleWhatsApp, icon: Phone },
   ];
 
@@ -65,10 +61,6 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenSchedule }) => {
                   <Phone size={14} />
                   <span>{COMPANY_INFO.phone}</span>
                 </a>
-                <button onClick={handleLocation} className="flex items-center gap-2 hover:text-brand-yellow transition-colors">
-                  <MapPin size={14} />
-                  <span>Franca, SP</span>
-                </button>
               </div>
               <div className="flex items-center gap-4">
                 <a
@@ -230,7 +222,7 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenSchedule }) => {
 
             {/* Contact Info */}
             <div className="mt-6 pt-6 border-t border-white/10 text-center">
-              <p className="text-white/50 text-sm">Fale conosco</p>
+              <p className="text-white/50 text-sm">Fale comigo</p>
               <a href={`tel:${COMPANY_INFO.phone}`} className="text-white font-semibold">
                 {COMPANY_INFO.phone}
               </a>

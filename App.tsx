@@ -75,7 +75,7 @@ const App: React.FC = () => {
       >
         <MessageCircle className="w-6 h-6 sm:w-8 sm:h-8 fill-current" />
         <span className="absolute right-full mr-3 bg-white text-slate-800 px-2 sm:px-3 py-1 rounded-lg text-xs sm:text-sm font-bold shadow-md opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none hidden sm:block">
-          Fale Conosco
+          Fale Comigo
         </span>
         {/* Notification Badge */}
         <span className="absolute -top-0.5 -right-0.5 sm:top-0 sm:right-0 w-3 h-3 sm:w-4 sm:h-4 bg-red-500 border-2 border-white rounded-full"></span>

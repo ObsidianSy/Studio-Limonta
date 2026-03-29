@@ -59,7 +59,7 @@ const Classes: React.FC<ClassesProps> = ({ onOpenSchedule }) => {
   };
 
   return (
-    <section id="turmas" className="py-20 bg-white relative">
+    <section id="turmas" className="py-20 bg-white relative scroll-mt-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="text-center mb-10 reveal">

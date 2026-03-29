@@ -3,16 +3,12 @@ import { Plus, Minus, HelpCircle } from 'lucide-react';
 
 const FAQS = [
   {
-    question: "A piscina é aquecida e tratada?",
-    answer: "Sim! A piscina possui temperatura controlada ideal para bebês e crianças (entre 30°C e 32°C). Utilizo tratamento de ozônio e sal, que é muito mais saudável para a pele e olhos sensíveis das crianças."
-  },
-  {
     question: "A partir de qual idade meu filho pode começar?",
-    answer: "Recebo bebês a partir dos 6 meses de idade na turma Tetéia. É uma fase essencial para adaptação e desenvolvimento motor."
+    answer: "Recebo bebês a partir dos 6 meses de idade na turma Ondinha. É uma fase essencial para adaptação e desenvolvimento motor."
   },
   {
     question: "Os pais precisam entrar na água?",
-    answer: "Nas turmas de bebês (Tetéia e Tico-Tico), é obrigatória a presença de um responsável na água para fortalecer o vínculo e dar segurança. A partir da turma Coral (aprox. 2 anos e meio), as crianças já entram comigo."
+    answer: "Nas turmas de bebês (Ondinha e Bolhinha), é obrigatória a presença de um responsável na água para fortalecer o vínculo e dar segurança. A partir da turma Correnteza (aprox. 2 anos e meio), as crianças já entram comigo."
   },
   {
     question: "Como funcionam as aulas experimentais?",

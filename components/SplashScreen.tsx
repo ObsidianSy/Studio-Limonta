@@ -11,16 +11,14 @@ const SplashScreen: React.FC<SplashScreenProps> = ({ onFinish }) => {
   const [stage, setStage] = useState<'loading' | 'finishing' | 'done'>('loading');
 
   useEffect(() => {
-    // Animação de loading
     const loadingTimer = setTimeout(() => {
       setStage('finishing');
-    }, 2000);
+    }, 1000);
 
-    // Finaliza e chama callback
     const finishTimer = setTimeout(() => {
       setStage('done');
       onFinish();
-    }, 2800);
+    }, 1500);
 
     return () => {
       clearTimeout(loadingTimer);
@@ -101,7 +99,7 @@ const SplashScreen: React.FC<SplashScreenProps> = ({ onFinish }) => {
             className="h-full bg-gradient-to-r from-brand-yellow via-white to-brand-yellow rounded-full transition-all duration-[2000ms] ease-out"
             style={{
               width: stage === 'loading' ? '100%' : '100%',
-              animation: 'loadingBar 2s ease-out forwards',
+              animation: 'loadingBar 1s ease-out forwards',
             }}
           />
         </div>

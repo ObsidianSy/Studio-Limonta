@@ -95,13 +95,13 @@ const Hero: React.FC<HeroProps> = ({ onOpenSchedule }) => {
                 <div className="w-7 h-7 sm:w-9 sm:h-9 rounded-full bg-white/10 flex items-center justify-center flex-shrink-0">
                   <span className="text-sm sm:text-base">🏊</span>
                 </div>
-                <span className="whitespace-nowrap">+500 alunos</span>
+                <span className="whitespace-nowrap">+50 alunos</span>
               </div>
               <div className="flex items-center justify-center min-[400px]:justify-start gap-1.5 sm:gap-2 bg-white/5 rounded-lg py-2 px-3">
                 <div className="w-7 h-7 sm:w-9 sm:h-9 rounded-full bg-white/10 flex items-center justify-center flex-shrink-0">
                   <span className="text-sm sm:text-base">⭐</span>
                 </div>
-                <span className="whitespace-nowrap">5.0 no Google</span>
+                <span className="whitespace-nowrap">5.0 de avaliação</span>
               </div>
             </div>
           </div>

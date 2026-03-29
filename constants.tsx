@@ -10,20 +10,19 @@ export const COMPANY_INFO = {
   whatsapp: "5516993008381",
   instagram: "@tiomatheus.natacao",
   instagramUrl: "https://www.instagram.com/tiomatheus.natacao?igsh=MWE0MmlucmF5cHV0Mg%3D%3D",
-  googleMaps: "https://www.google.com/maps"
 };
 
 export const METHODOLOGY_INTRO = {
-  title: "Turma Ocean's",
-  text: "Com o Tio Matheus, a Turma Ocean's é uma verdadeira jornada de aventuras na água! Aqui, as crianças vão aprender de maneira divertida e segura, começando com as habilidades básicas de natação e evoluindo até dominar os nados mais incríveis. Cada aula é uma exploração aquática, onde as crianças ganham confiança e ficam mais fortes a cada desafio."
+  title: "Método Tio Matheus",
+  text: "Com o Tio Matheus, cada aula é uma verdadeira jornada de aventuras na água! As crianças aprendem de maneira divertida e segura, começando com as habilidades básicas e evoluindo até dominar os nados mais incríveis. Uma exploração aquática onde ganham confiança e ficam mais fortes a cada desafio."
 };
 
 // Colors updated to match the flyers exactly
 export const CLASSES: ClassType[] = [
   {
-    id: "teteia",
-    title: "TETÉIA",
-    subtitle: "A Estrelinha do Mar",
+    id: "ondinha",
+    title: "ONDINHA",
+    subtitle: "Primeiros Passinhos na Água",
     mascot: new URL('/metodos/img-teteia.png', import.meta.url).href,
     ageRange: "6 meses a 1 ano e 6 meses",
     duration: "30 min",
@@ -34,119 +33,119 @@ export const CLASSES: ClassType[] = [
       "Equilíbrio e sustentação",
       "Pequenos mergulhos"
     ],
-    color: "bg-gradient-to-br from-[#FF6B6B] to-[#FF8E8E]" // Red/Pinkish for Starfish contrast
+    color: "bg-gradient-to-br from-[#FF6B6B] to-[#FF8E8E]"
   },
   {
-    id: "tico-tico",
-    title: "TICO TICO",
-    subtitle: "O Pequeno Caranguejo",
+    id: "bolhinha",
+    title: "BOLHINHA",
+    subtitle: "Descobrindo a Água",
     mascot: new URL('/metodos/tico-tico.png', import.meta.url).href,
     ageRange: "1 ano e 6 meses a 2 anos e 6 meses",
     duration: "30 min",
-    description: "Hora de virar caranguejinho! Começam a se movimentar com mais liberdade e confiança, sempre acompanhados.",
+    description: "Hora de soltar as primeiras bolhinhas! Começam a se movimentar com mais liberdade e confiança, sempre acompanhados.",
     learnings: [
       "Flutuação dorsal e ventral",
       "Movimentação de pernas",
       "Deslocamento independente",
       "Socialização"
     ],
-    color: "bg-gradient-to-br from-[#FF9F43] to-[#FFC076]" // Orange for Crab
+    color: "bg-gradient-to-br from-[#FF9F43] to-[#FFC076]"
   },
   {
-    id: "coral",
-    title: "CORAL",
-    subtitle: "O Cavalo-Marinho",
-    mascot: "🐠", 
+    id: "correnteza",
+    title: "CORRENTEZA",
+    subtitle: "Ganhando Confiança",
+    mascot: "🐠",
     ageRange: "2 anos e 6 meses a 3 anos e 9 meses",
     duration: "45 min",
-    description: "Como cavalos-marinhos, ganham equilíbrio e exploram a piscina como verdadeiros aventureiros.",
+    description: "Ganhando equilíbrio e explorando a piscina como verdadeiros aventureiros aquáticos.",
     learnings: [
       "Entrada e saída segura",
       "Nado cachorrinho",
       "Controle de respiração",
       "Saltos da borda"
     ],
-    color: "bg-gradient-to-br from-[#5f27cd] to-[#9b59b6]" // Purple for Seahorse
+    color: "bg-gradient-to-br from-[#5f27cd] to-[#9b59b6]"
   },
   {
-    id: "pingo",
-    title: "PINGO",
-    subtitle: "O Polvo Explorador",
+    id: "mare",
+    title: "MARÉ",
+    subtitle: "Explorando o Fundo",
     mascot: "🐙",
     ageRange: "3 anos e 10 meses a 5 anos",
     duration: "45 min",
-    description: "Polvinhos espertos! Muito mais autonomia para soltar bolhinhas e pegar tesouros no fundo da piscina.",
+    description: "Muito mais autonomia para soltar bolhinhas e pegar tesouros no fundo da piscina!",
     learnings: [
       "Nadar sem flutuadores (curto)",
       "Mergulho de olhos abertos",
       "Saltos em pé",
       "Imersão completa"
     ],
-    color: "bg-gradient-to-br from-[#ff5252] to-[#ff7979]" // Red/Pink for Octopus
+    color: "bg-gradient-to-br from-[#ff5252] to-[#ff7979]"
   },
   {
-    id: "guga",
-    title: "GUGA",
-    subtitle: "A Tartaruga Nadadora",
+    id: "rio",
+    title: "RIO",
+    subtitle: "Nadando Sozinho",
     mascot: "🐢",
     ageRange: "4 a 6 anos",
     duration: "45 min",
-    description: "Tartarugas destemidas! O momento de nadar sem ajuda e aprender os estilos de nado dos campeões.",
+    description: "O momento de nadar sem ajuda e aprender os estilos de nado dos campeões!",
     learnings: [
       "Introdução aos estilos",
       "Nado submerso",
       "Deslize na água",
       "Coordenação motora fina"
     ],
-    color: "bg-gradient-to-br from-[#10ac84] to-[#1dd1a1]" // Green for Turtle
+    color: "bg-gradient-to-br from-[#10ac84] to-[#1dd1a1]"
   },
   {
-    id: "splash",
-    title: "SPLASH",
-    subtitle: "A Foca Mergulhadora",
+    id: "cachoeira",
+    title: "CACHOEIRA",
+    subtitle: "Dominando os Estilos",
     mascot: "🦭",
     ageRange: "7 anos em diante",
     duration: "45 min",
-    description: "Dominando o crawl, costas e borboleta, deslizando na água como se estivessem surfando.",
+    description: "Dominando o crawl, costas e borboleta, deslizando na água com técnica e confiança.",
     learnings: [
       "Técnica de Crawl e Costas",
       "Iniciação ao Borboleta",
       "Resistência respiratória",
       "Mergulhos profundos"
     ],
-    color: "bg-gradient-to-br from-[#0abde3] to-[#48dbfb]" // Cyan for Seal
+    color: "bg-gradient-to-br from-[#0abde3] to-[#48dbfb]"
   },
   {
-    id: "tritao",
-    title: "TRITÃO",
-    subtitle: "Como os Golfinhos",
+    id: "tsunami",
+    title: "TSUNAMI",
+    subtitle: "Velocidade e Técnica",
     mascot: "🐬",
     ageRange: "A partir dos 7 anos",
     duration: "45 min",
-    description: "Desafiando as águas! Aperfeiçoando movimentos e aprendendo habilidades de sobrevivência.",
+    description: "Aperfeiçoando movimentos e aprendendo habilidades avançadas de natação e sobrevivência.",
     learnings: [
       "Crawl com respiração lateral",
       "Pernada de Peito",
       "Rolamentos e viradas",
       "Nado sobrevivência"
     ],
-    color: "bg-gradient-to-br from-[#2e86de] to-[#54a0ff]" // Blue for Dolphin
+    color: "bg-gradient-to-br from-[#2e86de] to-[#54a0ff]"
   },
   {
-    id: "tida",
-    title: "TIDA",
-    subtitle: "A Baleia Orca",
+    id: "oceano",
+    title: "OCEANO",
+    subtitle: "Nível Avançado",
     mascot: "🐋",
     ageRange: "A partir dos 10 anos",
     duration: "45 min",
-    description: "Nível avançado! Aprimorando cada movimento para nadar longas distâncias como uma Orca.",
+    description: "Nível máximo! Aprimorando cada movimento para nadar longas distâncias com excelência.",
     learnings: [
       "Refinamento dos 4 estilos",
       "Saídas de competição",
       "Resistência aeróbica",
       "Autossalvamento avançado"
     ],
-    color: "bg-gradient-to-br from-[#222f3e] to-[#576574]" // Dark Grey/Black for Orca
+    color: "bg-gradient-to-br from-[#222f3e] to-[#576574]"
   }
 ];
 

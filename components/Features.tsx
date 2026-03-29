@@ -34,7 +34,7 @@ const Features: React.FC = () => {
   };
 
   return (
-    <section id="metodologia" className="bg-brand-cyan pt-16 pb-32 relative">
+    <section id="metodologia" className="bg-brand-cyan pt-16 pb-32 relative scroll-mt-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         <div className="text-center mb-10 text-white reveal">
