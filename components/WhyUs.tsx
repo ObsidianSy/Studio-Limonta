@@ -7,7 +7,7 @@ const WhyUs: React.FC = () => {
     {
         icon: ShieldCheck,
         title: "Segurança Total",
-        desc: "Piscina tratada, ambiente monitorado e professor certificado em salvamento.",
+        desc: "Atendimento na sua piscina ou em local parceiro, sempre com segurança e professor certificado em salvamento.",
         color: "text-blue-600"
     },
     {
