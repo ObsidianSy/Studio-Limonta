@@ -96,12 +96,12 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenSchedule }) => {
             >
               <img
                   src={logoUrl}
-                  alt="Matheus Moreira Logo"
+                  alt="Tio Matheus Logo"
                   className="h-16 sm:h-20 md:h-24 w-auto object-contain group-hover:scale-105 transition-transform drop-shadow-lg"
                 />
               <div className="hidden sm:block text-white">
-                <span className="font-display text-xl sm:text-2xl font-bold block leading-tight">Matheus</span>
-                <span className="font-display text-xl sm:text-2xl font-bold text-brand-cyan">Moreira</span>
+                <span className="font-display text-xl sm:text-2xl font-bold block leading-tight">Tio Matheus</span>
+                <span className="font-display text-xl sm:text-2xl font-bold text-brand-cyan">Natação</span>
               </div>
             </div>
 
@@ -183,9 +183,9 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenSchedule }) => {
             {/* Logo & Title */}
             <div className="flex flex-col items-center mb-10">
               <div className="w-24 h-24 bg-white rounded-2xl flex items-center justify-center shadow-xl mb-4 p-2">
-                <img src={logoUrl} alt="Matheus Moreira" className="w-full h-full object-contain" />
+                <img src={logoUrl} alt="Tio Matheus" className="w-full h-full object-contain" />
               </div>
-              <h2 className="font-display text-2xl font-bold text-white">Matheus Moreira</h2>
+              <h2 className="font-display text-2xl font-bold text-white">Tio Matheus</h2>
               <p className="text-white/60 text-sm mt-1">Personal Aquático</p>
             </div>
 

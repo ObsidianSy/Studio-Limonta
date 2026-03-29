@@ -55,7 +55,7 @@ const Features: React.FC = () => {
 
             {/* Right Side: Features */}
             <div>
-                <h2 className="font-display text-4xl font-bold text-[#021b3c] mb-8">Por que escolher o Matheus?</h2>
+                <h2 className="font-display text-4xl font-bold text-[#021b3c] mb-8">Por que escolher o Tio Matheus?</h2>
                 <div className="space-y-6">
                     {features.map((f, i) => (
                         <div key={i} className="flex items-start gap-4 p-4 rounded-2xl hover:bg-slate-50 transition-colors">

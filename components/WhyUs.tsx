@@ -60,7 +60,7 @@ const WhyUs: React.FC = () => {
             {/* Right Side: Features */}
             <div className="reveal">
                 <span className="text-brand-cyan font-bold tracking-widest uppercase text-sm mb-2 block">Diferenciais</span>
-                <h2 className="font-display text-4xl font-bold text-brand-dark mb-8">Por que escolher o Matheus?</h2>
+                <h2 className="font-display text-4xl font-bold text-brand-dark mb-8">Por que escolher o Tio Matheus?</h2>
                 <div className="space-y-6">
                     {features.map((f, i) => (
                         <div key={i} className="flex items-start gap-4 p-4 rounded-2xl hover:bg-white transition-colors border border-transparent hover:border-slate-200">

@@ -2,7 +2,7 @@ import { Users, Trophy, Heart, Building2, Star } from "lucide-react";
 import { ClassType, Testimonial } from "./types";
 
 export const COMPANY_INFO = {
-  name: "Matheus Moreira",
+  name: "Tio Matheus",
   subtitle: "Personal Aquático",
   slogan: "Natação Infantil com Técnica e Diversão",
   address: "Atendimento Exclusivo - Franca/SP",
@@ -15,7 +15,7 @@ export const COMPANY_INFO = {
 
 export const METHODOLOGY_INTRO = {
   title: "Turma Ocean's",
-  text: "Com o Matheus Moreira, a Turma Ocean's é uma verdadeira jornada de aventuras na água! Aqui, as crianças vão aprender de maneira divertida e segura, começando com as habilidades básicas de natação e evoluindo até dominar os nados mais incríveis. Cada aula é uma exploração aquática, onde as crianças ganham confiança e ficam mais fortes a cada desafio."
+  text: "Com o Tio Matheus, a Turma Ocean's é uma verdadeira jornada de aventuras na água! Aqui, as crianças vão aprender de maneira divertida e segura, começando com as habilidades básicas de natação e evoluindo até dominar os nados mais incríveis. Cada aula é uma exploração aquática, onde as crianças ganham confiança e ficam mais fortes a cada desafio."
 };
 
 // Colors updated to match the flyers exactly

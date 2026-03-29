@@ -26,7 +26,7 @@ const Footer: React.FC = () => {
 
               <div className="flex flex-col md:flex-row items-center gap-8 relative z-10">
                   <div className="w-20 h-20 md:w-24 md:h-24 bg-white rounded-2xl overflow-hidden shadow-xl flex-shrink-0 p-1 rotate-3 hover:rotate-0 transition-transform">
-                      <img src={logoUrl} alt="Matheus Moreira Logo" className="w-full h-full object-contain scale-125" />
+                      <img src={logoUrl} alt="Tio Matheus Logo" className="w-full h-full object-contain scale-125" />
                   </div>
                   <div className="flex-1 text-center md:text-left">
                       <h3 className="font-display text-2xl md:text-3xl font-bold mb-2">Agende sua aula experimental</h3>

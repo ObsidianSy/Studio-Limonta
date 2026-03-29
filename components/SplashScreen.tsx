@@ -79,7 +79,7 @@ const SplashScreen: React.FC<SplashScreenProps> = ({ onFinish }) => {
           <div className="relative w-32 h-32 sm:w-36 sm:h-36 md:w-40 md:h-40 bg-white rounded-full p-1 shadow-2xl animate-bounce" style={{ animationDuration: '2s' }}>
             <img
               src={logoUrl}
-              alt="Matheus Moreira"
+              alt="Tio Matheus"
               className="w-full h-full object-contain scale-150"
             />
           </div>
@@ -87,7 +87,7 @@ const SplashScreen: React.FC<SplashScreenProps> = ({ onFinish }) => {
 
         {/* Text */}
         <h1 className="font-display text-4xl md:text-5xl font-bold text-white mb-2 animate-pulse">
-          Matheus Moreira
+          Tio Matheus
         </h1>
         <p className="text-white/70 text-lg mb-8 flex items-center gap-2">
           <Waves className="w-5 h-5" />
