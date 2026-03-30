@@ -1,13 +1,13 @@
 import React from 'react';
-import { Users, Star, Trophy, Building2, Heart } from 'lucide-react';
+import { Waves, User, Star, GraduationCap, Home } from 'lucide-react';
 import { HighlightProps } from '../types';
 
 const highlightsData: HighlightProps[] = [
-  { label: "Dia a Dia", icon: Heart, color: "from-pink-500 to-rose-500" },
-  { label: "Sobre Mim", icon: Users, color: "from-blue-500 to-cyan-500" },
+  { label: "Aulas", icon: Waves, color: "from-blue-500 to-cyan-500" },
+  { label: "Sobre Mim", icon: User, color: "from-pink-500 to-rose-500" },
   { label: "Feedbacks", icon: Star, color: "from-yellow-400 to-orange-500" },
-  { label: "Turmas", icon: Trophy, color: "from-green-400 to-emerald-500" },
-  { label: "Estrutura", icon: Building2, color: "from-purple-500 to-indigo-500" },
+  { label: "Turmas", icon: GraduationCap, color: "from-green-400 to-emerald-500" },
+  { label: "A Domicílio", icon: Home, color: "from-purple-500 to-indigo-500" },
 ];
 
 const Highlights: React.FC = () => {
