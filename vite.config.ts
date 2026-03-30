@@ -5,7 +5,7 @@ import react from "@vitejs/plugin-react";
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, ".", "");
   return {
-    base: "/Studio-Limonta/",
+    base: "/",
     server: {
       port: 3344,
       host: "0.0.0.0",
