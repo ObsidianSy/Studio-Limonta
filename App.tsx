@@ -48,8 +48,8 @@ const App: React.FC = () => {
       {/* Why Choose Us (Slate Bg) */}
       <WhyUs />
       
-      {/* Social Proof */}
-      <Testimonials />
+      {/* Social Proof - hidden until real testimonials are ready */}
+      {/* <Testimonials /> */}
 
       {/* FAQ (Dark Bg) */}
       <FAQ />
