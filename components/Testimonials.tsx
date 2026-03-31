@@ -18,8 +18,8 @@ const Testimonials: React.FC = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {TESTIMONIALS.map((t, idx) => (
-            <div 
-              key={idx} 
+            <article
+              key={idx}
               className="bg-slate-50 p-8 rounded-3xl border border-slate-100 shadow-lg hover:shadow-xl transition-shadow relative reveal group"
               style={{ transitionDelay: `${idx * 150}ms` }}
             >
@@ -36,7 +36,8 @@ const Testimonials: React.FC = () => {
               <div className="flex items-center gap-4 border-t border-slate-200 pt-4">
                 <img
                     src={t.avatar}
-                    alt={t.name}
+                    alt={`Foto de ${t.name}, ${t.role} - depoimento sobre natação infantil em Franca SP`}
+                    loading="lazy"
                     className="w-12 h-12 rounded-full object-cover border-2 border-brand-cyan shadow-sm"
                 />
                 <div>
@@ -44,7 +45,7 @@ const Testimonials: React.FC = () => {
                     <span className="text-xs text-brand-cyan font-bold uppercase">{t.role}</span>
                 </div>
               </div>
-            </div>
+            </article>
           ))}
         </div>
       </div>

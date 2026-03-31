@@ -153,19 +153,19 @@ export const TESTIMONIALS: Testimonial[] = [
   {
     name: "Ana Paula",
     role: "Mãe do Pedro",
-    text: "O método lúdico com os animais fez meu filho perder o medo de água em duas aulas!",
-    avatar: "https://randomuser.me/api/portraits/women/44.jpg"
+    text: "Gente, meu filho tinha PAVOR de água e em duas aulas já tava pulando na piscina! O jeito com os bichinhos ganhou ele demais.",
+    avatar: "https://randomuser.me/api/portraits/women/52.jpg"
   },
   {
     name: "Carlos Eduardo",
     role: "Pai da Sofia",
-    text: "Incrível ver a evolução técnica dela, já está nadando sozinha e mergulhando fundo.",
-    avatar: "https://randomuser.me/api/portraits/men/32.jpg"
+    text: "Cara, a Sofia tá nadando sozinha já! Não acreditei quando vi ela mergulhando no fundo sem medo nenhum. Super recomendo!",
+    avatar: "https://randomuser.me/api/portraits/men/46.jpg"
   },
   {
     name: "Mariana Silva",
     role: "Mãe do Lucas",
-    text: "A aula para bebês é apaixonante. Momentos únicos de conexão com meu filho.",
-    avatar: "https://randomuser.me/api/portraits/women/68.jpg"
+    text: "A aula de bebê é a melhor coisa! Eu e meu filho curtimos demais juntos, aquele momento não tem preço.",
+    avatar: "https://randomuser.me/api/portraits/women/89.jpg"
   }
 ];

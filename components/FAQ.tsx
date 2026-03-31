@@ -44,6 +44,8 @@ const FAQ: React.FC = () => {
             >
               <button
                 onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
+                aria-expanded={openIndex === idx}
+                aria-controls={`faq-answer-${idx}`}
                 className="w-full flex items-center justify-between p-6 text-left hover:bg-slate-50 transition-colors"
               >
                 <span className={`font-display font-bold text-lg ${openIndex === idx ? 'text-brand-blue' : 'text-gray-700'}`}>
@@ -54,7 +56,10 @@ const FAQ: React.FC = () => {
                 </span>
               </button>
               
-              <div 
+              <div
+                id={`faq-answer-${idx}`}
+                role="region"
+                aria-labelledby={`faq-question-${idx}`}
                 className={`overflow-hidden transition-all duration-300 ease-in-out ${openIndex === idx ? 'max-h-48 opacity-100' : 'max-h-0 opacity-0'}`}
               >
                 <div className="p-6 pt-0 text-gray-600 leading-relaxed border-t border-slate-100 mt-2">

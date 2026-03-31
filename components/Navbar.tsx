@@ -47,10 +47,10 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenSchedule }) => {
   ];
 
   return (
-    <>
+    <header>
       <nav className={`fixed w-full z-50 transition-all duration-300 ${
         isVisible ? 'translate-y-0' : '-translate-y-full'
-      } ${isScrolled ? 'bg-brand-dark/95 backdrop-blur-md shadow-lg' : 'bg-transparent'}`}>
+      } ${isScrolled ? 'bg-brand-dark/95 backdrop-blur-md shadow-lg' : 'bg-transparent'}`} aria-label="Navegação principal">
 
         {/* Top Bar - Info */}
         <div className="hidden lg:block bg-black/20 backdrop-blur-sm">
@@ -138,6 +138,8 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenSchedule }) => {
             <div className={`flex lg:hidden transition-opacity duration-300 ${isOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
               <button
                 onClick={() => setIsOpen(true)}
+                aria-label="Abrir menu de navegação"
+                aria-expanded={isOpen}
                 className="p-2 sm:p-3 rounded-xl text-white hover:bg-white/10 transition-all"
               >
                 <Menu className="w-6 h-6 sm:w-7 sm:h-7" />
@@ -165,6 +167,7 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenSchedule }) => {
           {/* Close Button */}
           <button
             onClick={() => setIsOpen(false)}
+            aria-label="Fechar menu de navegação"
             className="absolute top-6 right-6 p-2 text-white/80 hover:text-white transition-colors"
           >
             <X size={32} />
@@ -230,7 +233,7 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenSchedule }) => {
           </div>
         </div>
       </div>
-    </>
+    </header>
   );
 };
 

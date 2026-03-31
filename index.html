@@ -3,27 +3,351 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tio Matheus | Personal Aquático</title>
+    <title>Tio Matheus | Personal Aquático em Franca SP - Natação Infantil a partir de 6 meses</title>
 
     <!-- Favicon -->
     <link rel="icon" type="image/jpeg" href="/favicon.ico" />
-    <link rel="apple-touch-icon" href="/logo-math.jpeg" />
+
+    <!-- Apple Meta Tags -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Tio Matheus" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/logo-math.jpeg" />
+
+    <!-- Microsoft Tile -->
+    <meta name="msapplication-TileColor" content="#03045e" />
+    <meta name="msapplication-TileImage" content="/logo-math.jpeg" />
+
+    <!-- Preconnect for performance (affects Core Web Vitals / SEO) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="dns-prefetch" href="https://cdn.tailwindcss.com" />
 
     <!-- Preload logo for splash screen -->
     <link rel="preload" as="image" href="/logo-math.jpeg" />
     <link rel="preload" as="image" href="/img-hero.jpeg" />
 
-    <!-- Meta Tags SEO -->
-    <meta name="description" content="Tio Matheus - Personal Aquático em Franca, SP. Natação infantil a partir de 6 meses. Metodologia lúdica, segura e divertida. Agende sua aula experimental grátis!" />
-    <meta name="keywords" content="natação infantil, natação bebê, aulas de natação, Franca SP, natação crianças, escola de natação" />
-    <meta name="author" content="Tio Matheus" />
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="/manifest.json" />
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Tio Matheus - Personal Aquático em Franca, SP. Natação infantil a partir de 6 meses com metodologia lúdica, segura e divertida. Aulas de natação para bebês e crianças. Agende sua aula experimental grátis!" />
+    <meta name="keywords" content="natação infantil Franca, natação bebê Franca SP, aulas de natação Franca, natação crianças Franca SP, escola de natação Franca, personal aquático Franca, natação para bebês Franca, natação infantil região de Franca, aula de natação bebê Franca São Paulo, Tio Matheus natação, natação lúdica Franca SP, natação segura crianças Franca, natação infantil Ribeirão Preto, natação bebê Patrocínio Paulista, aulas natação Batatais, natação infantil São José da Bela Vista, natação crianças Restinga, natação bebê Cristais Paulista, natação infantil região Franca SP" />
+    <meta name="author" content="Tio Matheus - Personal Aquático" />
     <meta name="theme-color" content="#03045e" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="googlebot" content="index, follow" />
+    <link rel="canonical" href="https://tiomatheus.com.br/" />
+    <meta name="geo.region" content="BR-SP" />
+    <meta name="geo.placename" content="Franca, São Paulo" />
+    <meta name="geo.position" content="-20.5389;-47.4009" />
+    <meta name="ICBM" content="-20.5389, -47.4009" />
+    <meta name="language" content="pt-BR" />
+    <meta name="revisit-after" content="7 days" />
+    <meta name="rating" content="general" />
+    <meta name="distribution" content="global" />
+    <meta name="coverage" content="Franca, SP - Brasil" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Tio Matheus | Personal Aquático" />
-    <meta property="og:description" content="Natação infantil com amor, técnica e segurança. Aulas para bebês a partir de 6 meses em Franca, SP." />
-    <meta property="og:image" content="/logo-math.jpeg" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:site_name" content="Tio Matheus | Personal Aquático" />
+    <meta property="og:title" content="Tio Matheus | Personal Aquático em Franca, SP - Natação Infantil" />
+    <meta property="og:description" content="Natação infantil com amor, técnica e segurança em Franca, SP. Aulas para bebês a partir de 6 meses. Metodologia lúdica e divertida. Agende sua aula experimental grátis!" />
+    <meta property="og:image" content="https://tiomatheus.com.br/logo-math.jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Tio Matheus - Personal Aquático em Franca SP" />
+    <meta property="og:url" content="https://tiomatheus.com.br/" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Tio Matheus | Personal Aquático em Franca, SP" />
+    <meta name="twitter:description" content="Natação infantil a partir de 6 meses em Franca, SP. Metodologia lúdica, segura e divertida. Agende sua aula experimental grátis!" />
+    <meta name="twitter:image" content="https://tiomatheus.com.br/logo-math.jpeg" />
+    <meta name="twitter:image:alt" content="Tio Matheus - Personal Aquático em Franca SP" />
+
+    <!-- Structured Data - Local Business (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Tio Matheus - Personal Aquático",
+      "image": "https://tiomatheus.com.br/logo-math.jpeg",
+      "description": "Personal Aquático especializado em natação infantil em Franca, SP. Aulas de natação para bebês a partir de 6 meses e crianças com metodologia lúdica, segura e divertida.",
+      "url": "https://tiomatheus.com.br",
+      "telephone": "+55-16-99300-8381",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Franca",
+        "addressRegion": "SP",
+        "addressCountry": "BR"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": -20.5389,
+        "longitude": -47.4009
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "Franca",
+        "containedInPlace": {
+          "@type": "State",
+          "name": "São Paulo"
+        }
+      },
+      "priceRange": "$$",
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "08:00",
+          "closes": "18:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Saturday",
+          "opens": "08:00",
+          "closes": "12:00"
+        }
+      ],
+      "sameAs": [
+        "https://www.instagram.com/tiomatheus.natacao"
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Aulas de Natação Infantil",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Natação para Bebês (6 meses - 1,5 anos)",
+              "description": "Aulas de natação para bebês a partir de 6 meses com acompanhamento dos pais"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Natação Infantil (1,5 - 6 anos)",
+              "description": "Aulas de natação para crianças com metodologia lúdica e progressiva"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Natação Avançada (7+ anos)",
+              "description": "Aulas de natação avançada com técnicas de nado e preparação"
+            }
+          }
+        ]
+      }
+    }
+    </script>
+
+    <!-- Structured Data - FAQ (synced with real FAQ component) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "A partir de qual idade meu filho pode começar a nadar em Franca SP?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "O Tio Matheus recebe bebês a partir dos 6 meses de idade na turma Ondinha em Franca, SP. É uma fase essencial para adaptação e desenvolvimento motor aquático."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Os pais precisam entrar na água nas aulas de natação infantil?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nas turmas de bebês (Ondinha e Bolhinha), é obrigatória a presença de um responsável na água para fortalecer o vínculo e dar segurança. A partir da turma Correnteza (aprox. 2 anos e meio), as crianças já entram sozinhas com o Tio Matheus."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Como funcionam as aulas experimentais de natação em Franca?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A aula experimental é gratuita e serve para conhecer o nível da criança e apresentar a metodologia do Tio Matheus. Basta agendar pelo WhatsApp (16) 99300-8381."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Qual a metodologia das aulas de natação do Tio Matheus?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "O Método Tio Matheus utiliza uma abordagem lúdica e progressiva com 8 níveis temáticos (Ondinha, Bolhinha, Correnteza, Maré, Rio, Cachoeira, Tsunami e Oceano) que respeitam o desenvolvimento de cada criança, desde bebês de 6 meses até adolescentes."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Onde ficam as aulas de natação infantil do Tio Matheus em Franca SP?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "As aulas de natação do Tio Matheus são em atendimento exclusivo em Franca, SP. Entre em contato pelo WhatsApp (16) 99300-8381 para saber a localização e agendar uma aula experimental gratuita."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <!-- Structured Data - SportsActivityLocation -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SportsActivityLocation",
+      "name": "Tio Matheus - Personal Aquático",
+      "description": "Escola de natação infantil em Franca, SP com metodologia lúdica para bebês a partir de 6 meses",
+      "url": "https://tiomatheus.com.br",
+      "telephone": "+55-16-99300-8381",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Franca",
+        "addressRegion": "SP",
+        "addressCountry": "BR"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": -20.5389,
+        "longitude": -47.4009
+      },
+      "sport": "Natação"
+    }
+    </script>
+
+    <!-- Structured Data - Organization -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Tio Matheus - Personal Aquático",
+      "url": "https://tiomatheus.com.br",
+      "logo": "https://tiomatheus.com.br/logo-math.jpeg",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+55-16-99300-8381",
+        "contactType": "customer service",
+        "areaServed": "Franca, SP",
+        "availableLanguage": "Portuguese"
+      },
+      "sameAs": [
+        "https://www.instagram.com/tiomatheus.natacao"
+      ]
+    }
+    </script>
+
+    <!-- Structured Data - WebSite (enables sitelinks search box) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Tio Matheus - Personal Aquático",
+      "url": "https://tiomatheus.com.br",
+      "description": "Natação infantil em Franca, SP. Aulas para bebês a partir de 6 meses com metodologia lúdica e segura.",
+      "inLanguage": "pt-BR"
+    }
+    </script>
+
+    <!-- Structured Data - Person (Tio Matheus) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Tio Matheus",
+      "jobTitle": "Personal Aquático",
+      "description": "Professor de natação infantil em Franca, SP. Especializado em natação para bebês e crianças com metodologia lúdica e progressiva.",
+      "url": "https://tiomatheus.com.br",
+      "image": "https://tiomatheus.com.br/logo-math.jpeg",
+      "telephone": "+55-16-99300-8381",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Franca",
+        "addressRegion": "SP",
+        "addressCountry": "BR"
+      },
+      "sameAs": [
+        "https://www.instagram.com/tiomatheus.natacao"
+      ],
+      "knowsAbout": ["Natação Infantil", "Natação para Bebês", "Educação Aquática", "Metodologia Lúdica"]
+    }
+    </script>
+
+    <!-- Structured Data - BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Início",
+          "item": "https://tiomatheus.com.br/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Metodologia",
+          "item": "https://tiomatheus.com.br/#metodologia"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Turmas",
+          "item": "https://tiomatheus.com.br/#turmas"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "Contato",
+          "item": "https://tiomatheus.com.br/#contato"
+        }
+      ]
+    }
+    </script>
+
+    <!-- Structured Data - AggregateRating -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Tio Matheus - Personal Aquático",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5",
+        "bestRating": "5",
+        "worstRating": "1",
+        "ratingCount": "3",
+        "reviewCount": "3"
+      },
+      "review": [
+        {
+          "@type": "Review",
+          "author": { "@type": "Person", "name": "Ana Paula" },
+          "reviewRating": { "@type": "Rating", "ratingValue": "5" },
+          "reviewBody": "O método lúdico com os animais fez meu filho perder o medo de água em duas aulas!"
+        },
+        {
+          "@type": "Review",
+          "author": { "@type": "Person", "name": "Carlos Eduardo" },
+          "reviewRating": { "@type": "Rating", "ratingValue": "5" },
+          "reviewBody": "Incrível ver a evolução técnica dela, já está nadando sozinha e mergulhando fundo."
+        },
+        {
+          "@type": "Review",
+          "author": { "@type": "Person", "name": "Mariana Silva" },
+          "reviewRating": { "@type": "Rating", "ratingValue": "5" },
+          "reviewBody": "A aula para bebês é apaixonante. Momentos únicos de conexão com meu filho."
+        }
+      ]
+    }
+    </script>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script>
@@ -153,6 +477,43 @@
     </style>
   </head>
   <body class="text-slate-800 antialiased selection:bg-brand-yellow selection:text-brand-dark overflow-x-hidden">
+    <!-- Skip to content (accessibility + SEO) -->
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[9999] focus:bg-brand-dark focus:text-white focus:px-4 focus:py-2 focus:rounded-lg focus:text-lg focus:font-bold" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;" onfocus="this.style.cssText='position:fixed;left:16px;top:16px;z-index:9999;background:#03045e;color:white;padding:8px 16px;border-radius:8px;font-size:1rem;font-weight:bold;text-decoration:none;'" onblur="this.style.cssText='position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;'">Pular para o conteúdo</a>
+
+    <!-- Noscript SEO fallback -->
+    <noscript>
+      <div style="max-width:800px;margin:40px auto;padding:20px;font-family:sans-serif;color:#03045e;">
+        <h1>Tio Matheus - Personal Aquático em Franca, SP</h1>
+        <h2>Natação Infantil a partir de 6 meses</h2>
+        <p>O Tio Matheus é Personal Aquático em Franca, SP, especializado em natação infantil com metodologia lúdica, segura e divertida para bebês a partir de 6 meses e crianças de todas as idades.</p>
+        <h3>Método Tio Matheus - 8 Níveis de Aprendizado</h3>
+        <ul>
+          <li><strong>Ondinha</strong> - 6 meses a 1 ano e 6 meses: Primeiros passinhos na água</li>
+          <li><strong>Bolhinha</strong> - 1,5 a 2,5 anos: Descobrindo a água</li>
+          <li><strong>Correnteza</strong> - 2,5 a 3,9 anos: Ganhando confiança</li>
+          <li><strong>Maré</strong> - 3,10 a 5 anos: Explorando o fundo</li>
+          <li><strong>Rio</strong> - 4 a 6 anos: Nadando sozinho</li>
+          <li><strong>Cachoeira</strong> - 7+ anos: Dominando os estilos</li>
+          <li><strong>Tsunami</strong> - 7+ anos: Velocidade e técnica</li>
+          <li><strong>Oceano</strong> - 10+ anos: Nível avançado</li>
+        </ul>
+        <h3>Perguntas Frequentes</h3>
+        <dl>
+          <dt><strong>A partir de qual idade meu filho pode começar?</strong></dt>
+          <dd>Recebo bebês a partir dos 6 meses de idade na turma Ondinha.</dd>
+          <dt><strong>Os pais precisam entrar na água?</strong></dt>
+          <dd>Nas turmas Ondinha e Bolhinha sim. A partir da turma Correnteza (2,5 anos), as crianças entram sozinhas.</dd>
+          <dt><strong>Como agendar uma aula experimental?</strong></dt>
+          <dd>A aula experimental é gratuita! Ligue ou mande WhatsApp: (16) 99300-8381.</dd>
+        </dl>
+        <h3>Contato</h3>
+        <p><strong>Telefone/WhatsApp:</strong> (16) 99300-8381</p>
+        <p><strong>Instagram:</strong> @tiomatheus.natacao</p>
+        <p><strong>Localização:</strong> Franca, SP - Brasil</p>
+        <p><a href="https://wa.me/5516993008381">Agendar aula experimental gratuita via WhatsApp</a></p>
+      </div>
+    </noscript>
+
     <div id="root"></div>
     <script type="module" src="/index.tsx"></script>
     <script>

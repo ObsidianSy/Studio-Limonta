@@ -53,14 +53,16 @@ const Features: React.FC = () => {
             onTouchEnd={() => setIsPaused(false)}
         >
             {/* Navigation Arrows (Mobile) */}
-            <button 
+            <button
               onClick={() => scroll('left')}
+              aria-label="Ver metodologia anterior"
               className="absolute left-0 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-white/40 backdrop-blur-sm text-white p-1.5 rounded-full border border-white/30 md:hidden -ml-2"
             >
               <ChevronLeft size={20} />
             </button>
-            <button 
+            <button
               onClick={() => scroll('right')}
+              aria-label="Ver próxima metodologia"
               className="absolute right-0 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-white/40 backdrop-blur-sm text-white p-1.5 rounded-full border border-white/30 md:hidden -mr-2"
             >
               <ChevronRight size={20} />
@@ -105,9 +107,10 @@ const Features: React.FC = () => {
         <div className="relative w-full flex justify-center reveal">
            <div className="relative w-full max-w-3xl">
                <div className="absolute inset-0 bg-brand-yellow rounded-full blur-3xl opacity-20 animate-pulse"></div>
-               <img 
-                 src="https://img.freepik.com/free-vector/happy-children-jumping-summer-meadow_74855-5852.jpg?w=1380&t=st=1690000000~exp=1690000000~hmac=xyz" 
-                 alt="Crianças felizes aprendendo a nadar" 
+               <img
+                 src="https://img.freepik.com/free-vector/happy-children-jumping-summer-meadow_74855-5852.jpg?w=1380&t=st=1690000000~exp=1690000000~hmac=xyz"
+                 alt="Crianças felizes aprendendo a nadar com o Tio Matheus em Franca SP"
+                 loading="lazy"
                  className="rounded-[3rem] w-full border-8 border-white/30 shadow-2xl relative z-10"
                  style={{ maskImage: 'linear-gradient(to bottom, black 70%, transparent 100%)' }}
                />

@@ -48,7 +48,7 @@ const SchedulingModal: React.FC<SchedulingModalProps> = ({ isOpen, onClose, pref
   };
 
   return (
-    <div className="fixed inset-0 z-[70] flex items-center justify-center p-4">
+    <div className="fixed inset-0 z-[70] flex items-center justify-center p-4" role="dialog" aria-modal="true" aria-label="Agendar aula experimental de natação">
       <div className="absolute inset-0 bg-brand-dark/80 backdrop-blur-sm" onClick={onClose}></div>
       
       <div className="bg-white rounded-[2rem] w-full max-w-lg shadow-2xl relative flex flex-col max-h-[90vh] animate-float">
@@ -59,7 +59,7 @@ const SchedulingModal: React.FC<SchedulingModalProps> = ({ isOpen, onClose, pref
             <h3 className="font-display text-2xl font-bold">Agendar Aula</h3>
             <p className="text-cyan-100 text-sm">Passo {step} de 2</p>
           </div>
-          <button onClick={onClose} className="p-2 bg-white/20 rounded-full hover:bg-white/30 transition-colors">
+          <button onClick={onClose} aria-label="Fechar modal de agendamento" className="p-2 bg-white/20 rounded-full hover:bg-white/30 transition-colors">
             <X size={20} />
           </button>
         </div>

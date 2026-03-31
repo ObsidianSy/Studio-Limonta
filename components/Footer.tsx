@@ -54,7 +54,7 @@ const Footer: React.FC = () => {
             <div className="lg:col-span-1">
                 <div className="flex items-center gap-4 mb-5">
                     <div className="w-20 h-20 bg-white rounded-2xl overflow-hidden flex-shrink-0 p-1 shadow-lg">
-                        <img src={logoUrl} alt="Logo" className="w-full h-full object-contain scale-150" />
+                        <img src={logoUrl} alt="Tio Matheus - Personal Aquático em Franca SP" loading="lazy" className="w-full h-full object-contain scale-150" />
                     </div>
                     <div>
                         <h4 className="font-display text-lg font-bold leading-tight">{COMPANY_INFO.name}</h4>
@@ -65,10 +65,10 @@ const Footer: React.FC = () => {
                     Natação infantil com técnica, diversão e carinho. Do bebê ao atleta, cada criança no seu ritmo.
                 </p>
                 <div className="flex gap-3">
-                    <a href={COMPANY_INFO.instagramUrl} target="_blank" rel="noreferrer" className="w-10 h-10 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center hover:bg-brand-cyan hover:border-brand-cyan transition-all">
+                    <a href={COMPANY_INFO.instagramUrl} target="_blank" rel="noreferrer" aria-label="Siga o Tio Matheus no Instagram" className="w-10 h-10 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center hover:bg-brand-cyan hover:border-brand-cyan transition-all">
                         <Instagram size={18} />
                     </a>
-                    <a href={`https://wa.me/${COMPANY_INFO.whatsapp}`} target="_blank" rel="noreferrer" className="w-10 h-10 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center hover:bg-[#25D366] hover:border-[#25D366] transition-all">
+                    <a href={`https://wa.me/${COMPANY_INFO.whatsapp}`} target="_blank" rel="noreferrer" aria-label="Falar com Tio Matheus no WhatsApp" className="w-10 h-10 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center hover:bg-[#25D366] hover:border-[#25D366] transition-all">
                         <MessageCircle size={18} />
                     </a>
                 </div>
@@ -162,7 +162,7 @@ const Footer: React.FC = () => {
                             placeholder="Seu e-mail"
                             className="flex-1 px-3 py-2 bg-white/5 border border-white/10 rounded-lg text-white text-xs placeholder:text-white/20 focus:outline-none focus:border-brand-cyan transition-colors"
                         />
-                        <button className="bg-brand-cyan text-white px-3 py-2 rounded-lg hover:bg-brand-blue transition-colors">
+                        <button aria-label="Inscrever-se para receber novidades" className="bg-brand-cyan text-white px-3 py-2 rounded-lg hover:bg-brand-blue transition-colors">
                             <Mail size={14} />
                         </button>
                     </div>

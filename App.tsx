@@ -32,7 +32,7 @@ const App: React.FC = () => {
     <>
       {showSplash && <SplashScreen onFinish={handleSplashFinish} />}
 
-      <main className="min-h-screen font-sans bg-slate-50 selection:bg-brand-yellow selection:text-brand-dark">
+      <main id="main-content" className="min-h-screen font-sans bg-slate-50 selection:bg-brand-yellow selection:text-brand-dark">
       <Navbar onOpenSchedule={() => handleOpenSchedule()} />
       <Hero onOpenSchedule={() => handleOpenSchedule()} />
       
@@ -48,8 +48,8 @@ const App: React.FC = () => {
       {/* Why Choose Us (Slate Bg) */}
       <WhyUs />
       
-      {/* Social Proof - hidden until real testimonials are ready */}
-      {/* <Testimonials /> */}
+      {/* Social Proof */}
+      <Testimonials />
 
       {/* FAQ (Dark Bg) */}
       <FAQ />

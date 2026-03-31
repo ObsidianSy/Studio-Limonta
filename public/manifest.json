@@ -1,0 +1,20 @@
+{
+  "name": "Tio Matheus - Personal Aquático em Franca SP",
+  "short_name": "Tio Matheus",
+  "description": "Natação infantil a partir de 6 meses em Franca, SP. Metodologia lúdica, segura e divertida.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#03045e",
+  "theme_color": "#03045e",
+  "orientation": "portrait-primary",
+  "lang": "pt-BR",
+  "categories": ["sports", "education", "kids"],
+  "icons": [
+    {
+      "src": "/logo-math.jpeg",
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    }
+  ]
+}
